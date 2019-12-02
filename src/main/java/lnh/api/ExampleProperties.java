@@ -11,5 +11,8 @@ import org.springframework.stereotype.Component;
 @Getter
 @Setter
 public class ExampleProperties{
-  private String from = "java hard code";
+  private String a = "java hard code";
+  private String b = "java hard code";
+  private String c = "java hard code";
+  private String d = "java hard code";
 }
