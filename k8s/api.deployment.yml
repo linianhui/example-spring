@@ -3,7 +3,7 @@ apiVersion: apps/v1
 metadata:
   name: api
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       app: api
@@ -14,7 +14,8 @@ spec:
     spec:
       containers:
         - name: api
-          image: lnhcode/spring-k8s-example-api
+          image: registry.test/api:v1
+          imagePullPolicy: Always
           ports:
             - name: http
               containerPort: 8091
