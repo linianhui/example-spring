@@ -12,3 +12,7 @@ management:
     web:
       exposure:
         include: '*'
+
+lnh.example:
+  a: 'a form application.yml'
+  b: 'b form application.yml'
