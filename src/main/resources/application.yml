@@ -6,3 +6,9 @@ server:
 spring:
   application:
     name: lnh-api
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
