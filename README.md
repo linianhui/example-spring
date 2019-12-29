@@ -1,6 +1,7 @@
 # 准备镜像(本地镜像服务)
 
-api: <http://registry.test/v2/_catalog>
+registry.test: <http://registry.test/v2/_catalog>
+> registry.test 部署方法 : https://github.com/linianhui/docker/tree/master/app
 
 ```bash
 ./mvnw package
