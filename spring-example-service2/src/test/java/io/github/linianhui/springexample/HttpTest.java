@@ -1,4 +1,4 @@
-package io.github.linianhui.springexample.service2;
+package io.github.linianhui.springexample;
 
 import static org.springframework.restdocs.operation.preprocess.Preprocessors.prettyPrint;
 import static org.springframework.restdocs.webtestclient.WebTestClientRestDocumentation.documentationConfiguration;
@@ -17,7 +17,7 @@ import org.springframework.test.web.reactive.server.WebTestClient;
 @ActiveProfiles("test")
 @ExtendWith( {RestDocumentationExtension.class, SpringExtension.class})
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-abstract class HttpTest {
+public abstract class HttpTest {
 
   @Autowired
   protected WebTestClient http;
