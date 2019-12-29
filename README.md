@@ -8,7 +8,7 @@ docker build --tag registry.test/spring-example-service1:v1 .
 docker push registry.test/spring-example-service1:v1
 ```
 
-# 部署api服务
+# 部署service1
 
 service1: <http://192.168.2.212:30001>
 
