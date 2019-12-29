@@ -5,7 +5,7 @@ server:
 
 spring:
   application:
-    name: lnh-api
+    name: service1
 
 management:
   endpoints:

@@ -14,9 +14,9 @@ FROM openjdk:8-jre-alpine
 
 WORKDIR /app
 
-#COPY --from=builder /src/target/api-0.0.1-SNAPSHOT.jar app.jar
-COPY target/api-0.0.1-SNAPSHOT.jar app.jar
+#COPY --from=builder /src/target/spring-example-service1-0.0.1-SNAPSHOT.jar service1.jar
+COPY target/spring-example-service1-0.0.1-SNAPSHOT.jar service1.jar
 
-EXPOSE 8091
+EXPOSE 80
 
-ENTRYPOINT ["java", "-jar","app.jar"]
+ENTRYPOINT ["java", "-jar","service1.jar"]
