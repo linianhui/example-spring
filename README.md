@@ -12,6 +12,12 @@ docker build --tag registry.test/spring-example-service2:v1 spring-example-servi
 docker push registry.test/spring-example-service2:v1
 ```
 
+# 添加namespace
+
+```bash
+kubectl apply --filename k8s/namespace.yml
+```
+
 # 部署service1
 
 service1: <http://192.168.2.212:30001>
