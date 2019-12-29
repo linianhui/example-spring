@@ -1,4 +1,4 @@
-package lnh.api;
+package io.github.linianhui.springexample.service1;
 
 import static org.springframework.restdocs.webtestclient.WebTestClientRestDocumentation.document;
 

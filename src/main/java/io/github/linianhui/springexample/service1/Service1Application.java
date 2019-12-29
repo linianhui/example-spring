@@ -1,4 +1,4 @@
-package lnh.api;
+package io.github.linianhui.springexample.service1;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,10 +6,10 @@ import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 
 @SpringBootApplication
 @ConfigurationPropertiesScan
-public class ApiApplication {
+public class Service1Application {
 
   public static void main(String[] args) {
-    SpringApplication.run(ApiApplication.class, args);
+    SpringApplication.run(Service1Application.class, args);
   }
 
 }

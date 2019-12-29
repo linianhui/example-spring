@@ -1,4 +1,4 @@
-package lnh.api;
+package io.github.linianhui.springexample.service1;
 
 import lombok.Getter;
 import lombok.Setter;
