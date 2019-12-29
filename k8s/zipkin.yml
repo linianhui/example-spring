@@ -1,0 +1,37 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: zipkin
+  namespace: spring-example
+spec:
+  selector:
+    app: zipkin
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 9411
+      nodePort: 30088
+
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: zipkin
+  namespace: spring-example
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: zipkin
+  template:
+    metadata:
+      labels:
+        app: zipkin
+    spec:
+      containers:
+        - name: zipkin
+          image: openzipkin/zipkin
+          imagePullPolicy: Always
+          ports:
+            - name: http
+              containerPort: 9411

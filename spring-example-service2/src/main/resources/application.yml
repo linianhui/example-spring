@@ -6,6 +6,13 @@ server:
 spring:
   application:
     name: service2
+  sleuth:
+    sampler:
+      probability: 1.0
+  zipkin:
+    sender:
+      type: web
+    base-url: http://zipkin.spring-example
 
 management:
   endpoints:
