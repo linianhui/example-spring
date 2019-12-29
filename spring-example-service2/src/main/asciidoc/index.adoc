@@ -1,0 +1,10 @@
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:highlightjs-theme: github
+:toc: left
+:toclevels: 2
+
+== 首页
+=== 获取首页
+operation::get-home[snippets='http-request,http-response']

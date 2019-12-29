@@ -1,0 +1,54 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: spring-example
+
+---
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: service2
+  namespace: spring-example
+data:
+  application.yml: |-
+    lnh.example:
+      a: 'k8s config map form application.yml'
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: service2
+  namespace: spring-example
+spec:
+  selector:
+    app: service2
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 80
+      nodePort: 30002
+
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: service2
+  namespace: spring-example
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: service2
+  template:
+    metadata:
+      labels:
+        app: service2
+    spec:
+      containers:
+        - name: service2
+          image: registry.test/spring-example-service2:v1
+          imagePullPolicy: Always
+          ports:
+            - name: http
+              containerPort: 80

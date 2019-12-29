@@ -1,0 +1,18 @@
+debug: true
+
+server:
+  port: 80
+
+spring:
+  application:
+    name: service2
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+lnh.example:
+  a: 'a form application.yml'
+  b: 'b form application.yml'
