@@ -4,7 +4,7 @@ api: <http://registry.test/v2/_catalog>
 
 ```bash
 ./mvnw package
-docker build --tag registry.test/spring-example-service1:v1 .
+docker build --tag registry.test/spring-example-service1:v1 spring-example-service1
 docker push registry.test/spring-example-service1:v1
 ```
 
