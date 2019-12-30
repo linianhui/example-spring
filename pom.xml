@@ -4,6 +4,8 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
+    <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-parent -->
+    <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-parent -->
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
     <version>2.2.2.RELEASE</version>
@@ -80,6 +82,8 @@
   <dependencyManagement>
     <dependencies>
       <dependency>
+        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-dependencies -->
+        <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-dependencies -->
         <groupId>org.springframework.cloud</groupId>
         <artifactId>spring-cloud-dependencies</artifactId>
         <version>${spring-cloud.version}</version>
