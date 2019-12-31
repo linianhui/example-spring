@@ -16,4 +16,4 @@ jobs:
       - name: test
         env:
           debug: false
-        run: ./mvnw.cmd test
+        run: ./mvnw test
