@@ -8,8 +8,8 @@ import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 @ConfigurationPropertiesScan
 public class Service2Application {
 
-  public static void main(String[] args) {
-    SpringApplication.run(Service2Application.class, args);
-  }
+    public static void main(String[] args) {
+        SpringApplication.run(Service2Application.class, args);
+    }
 
 }

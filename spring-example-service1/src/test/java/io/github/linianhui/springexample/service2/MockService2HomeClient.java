@@ -13,15 +13,15 @@ import static org.mockito.Mockito.when;
 @Configuration
 public class MockService2HomeClient {
 
-  @Bean
-  @Primary
-  public Service2HomeClient service2HomeClient() {
-    Service2HomeClient client = mock(Service2HomeClient.class);
+    @Bean
+    @Primary
+    public Service2HomeClient service2HomeClient() {
+        Service2HomeClient client = mock(Service2HomeClient.class);
 
-    when(client.getHome())
-      .thenReturn(ImmutableMap.of("a", "form mock service2"));
+        when(client.getHome())
+            .thenReturn(ImmutableMap.of("a", "form mock service2"));
 
-    return client;
-  }
+        return client;
+    }
 
 }

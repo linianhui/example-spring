@@ -13,18 +13,18 @@ import java.util.Map;
 @RequestMapping("/")
 public class HomeController {
 
-  @Autowired
-  private ExampleProperties exampleProperties;
+    @Autowired
+    private ExampleProperties exampleProperties;
 
-  @Autowired
-  private Service2HomeClient service2HomeClient;
+    @Autowired
+    private Service2HomeClient service2HomeClient;
 
-  @GetMapping
-  public Object getHome() {
-    Map<String, Object> map = new LinkedHashMap<>();
-    map.put("service1", exampleProperties);
-    map.put("service2", service2HomeClient.getHome());
-    return map;
-  }
+    @GetMapping
+    public Object getHome() {
+        Map<String, Object> map = new LinkedHashMap<>();
+        map.put("service1", exampleProperties);
+        map.put("service2", service2HomeClient.getHome());
+        return map;
+    }
 
 }
