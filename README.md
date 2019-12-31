@@ -1,3 +1,18 @@
+<!-- TOC -->
+- [CI](#ci)
+- [准备镜像(本地镜像服务)](#准备镜像本地镜像服务)
+- [添加namespace](#添加namespace)
+- [部署zipkin](#部署zipkin)
+- [部署service1](#部署service1)
+- [部署service2](#部署service2)
+<!-- TOC -->
+
+# CI
+
+| CI            | Platform | Stauts                                      |
+| ------------- | -------- | ------------------------------------------- |
+| GitHub Action | Windows  | [![GitHub-Actions-Img]][GitHub-Actions-Url] |
+
 # 准备镜像(本地镜像服务)
 
 registry.test: <http://registry.test/v2/_catalog>
@@ -46,3 +61,6 @@ service2-actuator: <http://192.168.2.212:30002/actuator>
 ```bash
 kubectl apply --filename k8s/service2.yml
 ```
+
+[GitHub-Actions-Img]:https://github.com/linianhui/spring.example/workflows/test/badge.svg
+[GitHub-Actions-Url]:https://github.com/linianhui/spring.example/actions
