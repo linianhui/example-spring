@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/")
 public class HomeController {
 
-  @Autowired
-  private ExampleProperties exampleProperties;
+    @Autowired
+    private ExampleProperties exampleProperties;
 
-  @GetMapping
-  public Object getHome() {
-    return exampleProperties;
-  }
+    @GetMapping
+    public Object getHome() {
+        return exampleProperties;
+    }
 
 }

@@ -5,6 +5,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 @FeignService2
 public interface Service2HomeClient {
 
-  @GetMapping(path = "/")
-  Object getHome();
+    @GetMapping(path = "/")
+    Object getHome();
 }
