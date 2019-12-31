@@ -4,7 +4,11 @@ on: [push]
 
 jobs:
   test:
-    runs-on: windows-latest
+    runs-on: ubuntu-16.04
+
+    container:
+      # https://hub.docker.com/_/maven/
+      image: maven:3.6-jdk-8
 
     steps:
       - name: git checkout
