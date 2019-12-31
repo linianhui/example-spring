@@ -11,7 +11,7 @@
 
 | CI            | Platform | Stauts                                      |
 | ------------- | -------- | ------------------------------------------- |
-| GitHub Action | Windows  | [![GitHub-Actions-Img]][GitHub-Actions-Url] |
+| GitHub Action | Docker   | [![GitHub-Actions-Img]][GitHub-Actions-Url] |
 
 # 准备镜像(本地镜像服务)
 
