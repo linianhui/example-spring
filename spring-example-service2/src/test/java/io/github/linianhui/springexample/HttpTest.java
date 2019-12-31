@@ -1,5 +1,7 @@
 package io.github.linianhui.springexample;
 
+import io.github.linianhui.util.AssertUtil;
+import io.github.linianhui.util.ResourceUtil;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,5 +37,13 @@ public abstract class HttpTest {
                 .withResponseDefaults(prettyPrint())
             )
             .build();
+    }
+
+    protected ResourceUtil getResourceUtil() {
+        return ResourceUtil.of();
+    }
+
+    protected AssertUtil getAssertUtil() {
+        return AssertUtil.of(this.getResourceUtil());
     }
 }
