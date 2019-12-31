@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 class JsonComparator extends DefaultComparator {
     private List<Pattern> ignoreFieldRegexPathList = null;
 
-    JsonComparator(JSONCompareMode mode, String... ignoreFieldRegexPath) {
+    JsonComparator(JSONCompareMode mode, String[] ignoreFieldRegexPath) {
         super(mode);
         if (ignoreFieldRegexPath != null) {
             this.ignoreFieldRegexPathList = Arrays.stream(ignoreFieldRegexPath)
