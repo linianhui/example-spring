@@ -25,6 +25,7 @@
   </properties>
 
   <modules>
+    <module>util</module>
     <module>spring-example-service1</module>
     <module>spring-example-service2</module>
   </modules>
