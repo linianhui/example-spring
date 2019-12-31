@@ -10,4 +10,6 @@ jobs:
       - name: git checkout
         uses: actions/checkout@v1
       - name: test
+        env:
+          debug: false
         run: ./mvnw.cmd test
