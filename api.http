@@ -1,0 +1,35 @@
+@HOST = http://192.168.2.212:30001
+
+
+### 首页
+GET {{HOST}}
+
+
+### 上传文件 + JSON
+POST {{HOST}}/v1/file/upload
+Content-Type: multipart/form-data; boundary=12345678
+
+--12345678
+Content-Disposition: form-data; name="id"
+
+id-from empty
+--12345678
+Content-Disposition: form-data; name="pojo"
+Content-Type: application/json
+
+{"id":"id-from-json","name":"name-from-json"}
+--12345678
+Content-Disposition: form-data; name="files"; filename="pom.xml"
+Content-Type: application/xml
+
+< ./pom.xml
+--12345678
+Content-Disposition: form-data; name="files"; filename="README.md"
+Content-Type: application/octet-stream
+
+< ./README.md
+--12345678--
+
+
+### actuator
+GET {{HOST}}/actuator
