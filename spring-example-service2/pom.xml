@@ -35,13 +35,6 @@
       <artifactId>util</artifactId>
     </dependency>
 
-    <!-- provided -->
-    <dependency>
-      <groupId>org.projectlombok</groupId>
-      <artifactId>lombok</artifactId>
-      <scope>provided</scope>
-    </dependency>
-
     <!-- test -->
     <dependency>
       <groupId>org.springframework.boot</groupId>

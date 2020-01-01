@@ -30,6 +30,16 @@
     <module>spring-example-service2</module>
   </modules>
 
+  <dependencies>
+    <!-- provided -->
+    <dependency>
+      <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+        <scope>provided</scope>
+    </dependency>
+  </dependencies>
+
   <dependencyManagement>
     <dependencies>
       <dependency>
