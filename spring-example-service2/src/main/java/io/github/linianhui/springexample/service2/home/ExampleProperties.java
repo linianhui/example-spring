@@ -1,4 +1,4 @@
-package io.github.linianhui.springexample.service2;
+package io.github.linianhui.springexample.service2.home;
 
 import lombok.Getter;
 import lombok.Setter;
