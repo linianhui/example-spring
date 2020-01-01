@@ -1,4 +1,4 @@
-package io.github.linianhui.springexample.service1;
+package io.github.linianhui.springexample.service1.file;
 
 import lombok.*;
 import org.springframework.web.bind.annotation.PostMapping;
