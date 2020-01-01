@@ -1,0 +1,22 @@
+{
+  "now": "2020-01-01T09:14:39.052",
+  "id": "id-value",
+  "pojo": {
+    "id": "id-from-json",
+    "name": "name-from-json"
+  },
+  "file_properties": [
+    {
+      "name": "files",
+      "file_name": "file.name",
+      "length": 14,
+      "content_type": "text/plain;charset=UTF-8"
+    },
+    {
+      "name": "files",
+      "file_name": "request-upload-file.xml",
+      "length": 57,
+      "content_type": "application/xml"
+    }
+  ]
+}
