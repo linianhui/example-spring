@@ -34,9 +34,9 @@
     <!-- provided -->
     <dependency>
       <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
-        <groupId>org.projectlombok</groupId>
-        <artifactId>lombok</artifactId>
-        <scope>provided</scope>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <scope>provided</scope>
     </dependency>
   </dependencies>
 
@@ -94,6 +94,27 @@
               <version>${spring-restdocs.version}</version>
             </dependency>
           </dependencies>
+        </plugin>
+
+        <plugin>
+          <!-- https://mvnrepository.com/artifact/com.spotify/dockerfile-maven-plugin -->
+          <!-- https://github.com/spotify/dockerfile-maven -->
+          <groupId>com.spotify</groupId>
+          <artifactId>dockerfile-maven-plugin</artifactId>
+          <version>1.4.13</version>
+          <executions>
+            <execution>
+              <id>default</id>
+            </execution>
+          </executions>
+          <configuration>
+            <repository>registry.test/${project.artifactId}</repository>
+            <tag>${project.version}</tag>
+            <pullNewerImage>false</pullNewerImage>
+            <buildArgs>
+              <JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
+            </buildArgs>
+          </configuration>
         </plugin>
       </plugins>
     </pluginManagement>

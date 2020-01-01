@@ -41,7 +41,7 @@ spec:
     spec:
       containers:
         - name: service1
-          image: registry.test/spring-example-service1:v1
+          image: registry.test/spring-example-service1:0.0.1-SNAPSHOT
           imagePullPolicy: Always
           ports:
             - name: http

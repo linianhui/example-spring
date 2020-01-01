@@ -1,6 +1,6 @@
 <!-- TOC -->
 - [CI](#ci)
-- [准备镜像(本地镜像服务)](#准备镜像本地镜像服务)
+- [准备本地镜像服务](#准备本地镜像服务)
 - [添加namespace](#添加namespace)
 - [部署zipkin](#部署zipkin)
 - [部署service1](#部署service1)
@@ -13,20 +13,10 @@
 | ------------- | -------- | ------------------------------------------- |
 | GitHub Action | Docker   | [![GitHub-Actions-Img]][GitHub-Actions-Url] |
 
-# 准备镜像(本地镜像服务)
+# 准备本地镜像服务
 
 registry.test: <http://registry.test/v2/_catalog>
 > registry.test 部署方法 : https://github.com/linianhui/docker/tree/master/app
-
-```bash
-./mvnw package
-
-docker build --tag registry.test/spring-example-service1:v1 spring-example-service1
-docker push registry.test/spring-example-service1:v1
-
-docker build --tag registry.test/spring-example-service2:v1 spring-example-service2
-docker push registry.test/spring-example-service2:v1
-```
 
 # 添加namespace
 
@@ -49,6 +39,8 @@ service1: <http://192.168.2.212:30001>
 service1-actuator: <http://192.168.2.212:30001/actuator>
 
 ```bash
+./mvnw package dockerfile:build dockerfile:push --projects spring-example-service1
+
 kubectl apply --filename k8s/service1.yml
 ```
 
@@ -59,6 +51,8 @@ service2: <http://192.168.2.212:30002>
 service2-actuator: <http://192.168.2.212:30002/actuator>
 
 ```bash
+./mvnw package dockerfile:build dockerfile:push --projects spring-example-service2
+
 kubectl apply --filename k8s/service2.yml
 ```
 

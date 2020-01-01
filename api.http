@@ -1,6 +1,18 @@
 @HOST = http://192.168.2.212:30001
 
 
+### 本地Docker镜像仓库
+GET http://registry.test/v2/_catalog
+
+
+### 本地Docker镜像仓库-spring-example-service1
+GET http://registry.test/v2/spring-example-service1/tags/list
+
+
+### 本地Docker镜像仓库-spring-example-service2
+GET http://registry.test/v2/spring-example-service2/tags/list
+
+
 ### 首页
 GET {{HOST}}
 
