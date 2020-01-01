@@ -110,6 +110,7 @@
           <configuration>
             <repository>registry.test/${project.artifactId}</repository>
             <tag>${project.version}</tag>
+            <pullNewerImage>false</pullNewerImage>
             <buildArgs>
               <JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
             </buildArgs>
