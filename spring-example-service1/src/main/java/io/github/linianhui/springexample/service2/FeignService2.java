@@ -11,9 +11,10 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
 @FeignClient(
-    primary = false,
     name = "service2",
-    url = "http://service2.spring-example"
+    primary = false,
+    url = "http://service2.spring-example",
+    configuration = FeignMultipartEncoderConfiguration.class
 )
 public @interface FeignService2 {
 
