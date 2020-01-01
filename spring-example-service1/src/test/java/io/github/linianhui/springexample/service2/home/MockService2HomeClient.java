@@ -1,6 +1,7 @@
-package io.github.linianhui.springexample.service2;
+package io.github.linianhui.springexample.service2.home;
 
 import com.google.common.collect.ImmutableMap;
+import io.github.linianhui.springexample.service2.home.Service2HomeClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;

@@ -1,4 +1,4 @@
-package io.github.linianhui.springexample.service2;
+package io.github.linianhui.springexample.service2.home;
 
 import io.github.linianhui.springexample.HttpTest;
 import org.junit.jupiter.api.Test;
