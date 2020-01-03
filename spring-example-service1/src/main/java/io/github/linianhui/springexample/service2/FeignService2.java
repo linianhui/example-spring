@@ -11,8 +11,8 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
 @FeignClient(
-    primary = false,
     name = "service2",
+    primary = false,
     url = "http://service2.spring-example"
 )
 public @interface FeignService2 {

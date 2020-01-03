@@ -1,9 +1,6 @@
 package io.github.linianhui.springexample.service2.file;
 
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestPart;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.time.LocalDateTime;
@@ -18,8 +15,8 @@ public class FileController {
 
     @PostMapping(path = "upload")
     public Object uploadFile(
-        final @RequestPart(name = "id") String id,
-        final @RequestPart(name = "pojo") POJO pojo,
+        final @RequestParam(name = "id") String id,
+        final @RequestPart(name = "pojo", required = false) POJO pojo,
         final @RequestPart(name = "files") MultipartFile[] multipartFiles
     ) {
         final Map<String, Object> map = new LinkedHashMap<>();

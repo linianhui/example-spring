@@ -13,6 +13,8 @@ spring:
     sender:
       type: web
     base-url: http://zipkin.spring-example
+  main:
+    allow-bean-definition-overriding: true
 
 management:
   endpoints:
