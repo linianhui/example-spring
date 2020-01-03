@@ -13,8 +13,7 @@ import java.lang.annotation.Target;
 @FeignClient(
     name = "service2",
     primary = false,
-    url = "http://service2.spring-example",
-    configuration = FeignMultipartEncoderConfiguration.class
+    url = "http://service2.spring-example"
 )
 public @interface FeignService2 {
 

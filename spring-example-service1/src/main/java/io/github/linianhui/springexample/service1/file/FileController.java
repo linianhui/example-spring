@@ -20,9 +20,9 @@ public class FileController {
     @PostMapping("upload")
     public Object uploadFile(
         final @RequestPart(name = "id") String id,
-        final @RequestPart(name = "pojo") Map pojo,
-        final @RequestPart(name = "files") MultipartFile[] multipartFiles
+        final @RequestPart(name = "pojo", required = false) Map pojo,
+        final @RequestPart(name = "files") MultipartFile multipartFiles
     ) {
-        return service2FileClient.uploadFile(id, pojo, multipartFiles);
+        return service2FileClient.uploadFile(id, multipartFiles);
     }
 }

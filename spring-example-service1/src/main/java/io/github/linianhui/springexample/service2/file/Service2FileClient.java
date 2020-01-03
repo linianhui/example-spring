@@ -1,19 +1,18 @@
 package io.github.linianhui.springexample.service2.file;
 
-import io.github.linianhui.springexample.service2.FeignService2;
+import io.github.linianhui.springexample.service2.FeignService2WithMultipartFile;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.util.Map;
-
-@FeignService2
+@FeignService2WithMultipartFile
 public interface Service2FileClient {
 
     @PostMapping(path = "/v1/file/upload")
     Object uploadFile(
-        @RequestPart(name = "id") String id,
-        @RequestPart(name = "pojo") Map pojo,
-        @RequestPart(name = "files") MultipartFile[] multipartFiles
+        @RequestParam(name = "id") String id,
+        @RequestPart(name = "files") MultipartFile multipartFiles
     );
 }
