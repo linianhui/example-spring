@@ -10,7 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
 @FeignService2WithMultipartFile
 public interface Service2FileClient {
 
-    @PostMapping(path = "/v1/file/upload")
+    @PostMapping(path = "/v1/file/upload", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     Object uploadFile(
         @RequestParam(name = "id") String id,
         @RequestPart(name = "files") MultipartFile multipartFiles
