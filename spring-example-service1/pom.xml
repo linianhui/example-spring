@@ -38,6 +38,10 @@
       <groupId>io.github.linianhui</groupId>
       <artifactId>util</artifactId>
     </dependency>
+    <dependency>
+      <groupId>io.github.openfeign</groupId>
+      <artifactId>feign-okhttp</artifactId>
+    </dependency>
 
     <!-- test -->
     <dependency>

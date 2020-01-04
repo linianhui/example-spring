@@ -1,0 +1,6 @@
+spring:
+  cloud:
+    kubernetes:
+      enabled: true
+  zipkin:
+    enabled: true
