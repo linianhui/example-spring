@@ -97,6 +97,30 @@
         </plugin>
 
         <plugin>
+          <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-resources-plugin -->
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-resources-plugin</artifactId>
+          <version>3.1.0</version>
+          <executions>
+            <execution>
+              <id>copy-resources</id>
+              <phase>prepare-package</phase>
+              <goals>
+                <goal>copy-resources</goal>
+              </goals>
+              <configuration>
+                <resources>
+                  <resource>
+                    <directory>${project.build.directory}/generated-docs</directory>
+                  </resource>
+                </resources>
+                <outputDirectory>${project.build.outputDirectory}/static/.doc</outputDirectory>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
+
+        <plugin>
           <!-- https://mvnrepository.com/artifact/com.spotify/dockerfile-maven-plugin -->
           <!-- https://github.com/spotify/dockerfile-maven -->
           <groupId>com.spotify</groupId>
