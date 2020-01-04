@@ -44,4 +44,4 @@ Content-Type: application/octet-stream
 
 
 ### actuator
-GET {{HOST}}/actuator
+GET {{HOST}}/.actuator
