@@ -5,11 +5,44 @@ server:
 
 spring:
   application:
-    name: service2
+    name: service1
+  # https://cloud.spring.io/spring-cloud-static/spring-cloud-kubernetes/1.1.1.RELEASE/reference/html/
+  # https://cloud.spring.io/spring-cloud-static/spring-cloud-kubernetes/1.1.1.RELEASE/reference/html/appendix.html
+  cloud:
+    kubernetes:
+      enabled: false
+      reload:
+        enabled: false
+      config:
+        name: ${spring.application.name}
+        enabled: true
+
+  main:
+    allow-bean-definition-overriding: true
+
+  # https://cloud.spring.io/spring-cloud-static/spring-cloud-sleuth/2.2.1.RELEASE/reference/html/
+  # https://cloud.spring.io/spring-cloud-static/spring-cloud-sleuth/2.2.1.RELEASE/reference/html/appendix.html
   sleuth:
+    enabled: true
+    trace-id128: false
     sampler:
       probability: 1.0
+    web:
+      enabled: true
+      client:
+        enabled: true
+      appendDefaultSkipPattern: true
+      additionalSkipPattern: "/actuator.*"
+    feign:
+      enabled: true
+    http:
+      enabled: true
+    log:
+      slf4j:
+        enabled: true
+
   zipkin:
+    enabled: false
     sender:
       type: web
     base-url: http://zipkin.spring-example
@@ -17,6 +50,7 @@ spring:
 management:
   endpoints:
     web:
+      base-path: /actuator
       exposure:
         include: '*'
 
