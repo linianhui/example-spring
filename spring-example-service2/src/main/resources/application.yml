@@ -5,7 +5,7 @@ server:
 
 spring:
   application:
-    name: service1
+    name: service2
   # https://cloud.spring.io/spring-cloud-static/spring-cloud-kubernetes/1.1.1.RELEASE/reference/html/
   # https://cloud.spring.io/spring-cloud-static/spring-cloud-kubernetes/1.1.1.RELEASE/reference/html/appendix.html
   cloud:
