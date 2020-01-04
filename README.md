@@ -38,6 +38,8 @@ service1: <http://192.168.2.212:30001>
 
 service1-actuator: <http://192.168.2.212:30001/actuator>
 
+service1-doc: <http://192.168.2.212:30001/.doc/index.html>
+
 ```bash
 ./mvnw package dockerfile:build dockerfile:push --projects spring-example-service1
 
@@ -49,6 +51,8 @@ kubectl apply --filename k8s/service1.yml
 service2: <http://192.168.2.212:30002>
 
 service2-actuator: <http://192.168.2.212:30002/actuator>
+
+service2-doc: <http://192.168.2.212:30002/.doc/index.html>
 
 ```bash
 ./mvnw package dockerfile:build dockerfile:push --projects spring-example-service2
