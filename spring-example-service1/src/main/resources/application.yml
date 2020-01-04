@@ -47,6 +47,18 @@ spring:
       type: web
     base-url: http://zipkin.spring-example
 
+feign:
+  hystrix:
+    enabled: false
+  okhttp:
+    enabled: true
+  client:
+    default-config: default
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+
 management:
   endpoints:
     web:
