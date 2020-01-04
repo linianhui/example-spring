@@ -49,3 +49,21 @@ spec:
           env:
             - name: spring.profiles.active
               value: prod
+          readinessProbe:
+            httpGet:
+              path: /.actuator/health
+              port: 80
+            initialDelaySeconds: 5
+            timeoutSeconds: 5
+            periodSeconds: 30
+            successThreshold: 1
+            failureThreshold: 5
+          livenessProbe:
+            httpGet:
+              path: /.actuator/health
+              port: 80
+            initialDelaySeconds: 5
+            timeoutSeconds: 5
+            periodSeconds: 30
+            successThreshold: 1
+            failureThreshold: 5
