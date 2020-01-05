@@ -1,0 +1,16 @@
+{
+  "service1": {
+    "request": {
+      "protocol": "HTTP/1.1"
+    },
+    "example_properties": {
+      "a": "a form application.yml",
+      "b": "b form application.yml",
+      "c": "java hard code",
+      "d": "java hard code"
+    }
+  },
+  "service2": {
+    "a": "form mock service2"
+  }
+}

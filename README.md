@@ -5,6 +5,7 @@
 - [部署zipkin](#部署zipkin)
 - [部署service1](#部署service1)
 - [部署service2](#部署service2)
+- [Send http2-prior-knowledge request](#send-http2-prior-knowledge-request)
 <!-- TOC -->
 
 # CI
@@ -58,6 +59,41 @@ service2-doc: <http://192.168.2.212:30002/.doc/index.html>
 ./mvnw package dockerfile:build dockerfile:push --projects spring-example-service2
 
 kubectl apply --filename k8s/service2.yml
+```
+
+
+# Send http2-prior-knowledge request
+
+```sh
+kubectl run tool --namespace spring-example --generator=run-pod/v1 --image=lnhcode/tool --restart=Never --stdin --tty --command --rm -- sh -c 'curl -s --http2-prior-knowledge http://service1.spring-example | jq'
+```
+
+输出:
+```json
+{
+  "service1": {
+    "request": {
+      "protocol": "HTTP/2.0"
+    },
+    "example_properties": {
+      "a": "k8s config map form application.yml",
+      "b": "b form application.yml",
+      "c": "java hard code",
+      "d": "java hard code"
+    }
+  },
+  "service2": {
+    "request": {
+      "protocol": "HTTP/1.1"
+    },
+    "example_properties": {
+      "a": "k8s config map form application.yml",
+      "b": "b form application.yml",
+      "c": "java hard code",
+      "d": "java hard code"
+    }
+  }
+}
 ```
 
 [GitHub-Actions-Img]:https://github.com/linianhui/spring.example/workflows/test/badge.svg

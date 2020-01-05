@@ -16,6 +16,10 @@ class HomeControllerTest extends HttpTest {
             .expectStatus()
             .isOk()
             .expectBody()
+            .consumeWith(getAssertUtil().assertJsonFileEquals(
+                "/home/response.json",
+                new String[]{"service1.request.headers"}
+            ))
             .consumeWith(document("get-home"));
     }
 }
