@@ -10,7 +10,7 @@
 #RUN mvn package
 
 # https://hub.docker.com/_/openjdk
-FROM openjdk:8-jre-alpine
+FROM openjdk:8
 
 ARG JAR_FILE
 
