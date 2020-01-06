@@ -49,6 +49,13 @@ spec:
           env:
             - name: spring.profiles.active
               value: prod
+          resources:
+            requests:
+              cpu: 500m
+              memory: 1024Mi
+            limits:
+              cpu: 1
+              memory: 1024Mi
           readinessProbe:
             httpGet:
               path: /.actuator/health
