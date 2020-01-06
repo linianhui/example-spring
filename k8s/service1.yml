@@ -51,11 +51,11 @@ spec:
               value: prod
           resources:
             requests:
-              cpu: 200m
-              memory: 512Mi
+              cpu: 50m
+              memory: 256Mi
             limits:
               cpu: 1
-              memory: 1024Mi
+              memory: 512Mi
           readinessProbe:
             httpGet:
               path: /.actuator/health
