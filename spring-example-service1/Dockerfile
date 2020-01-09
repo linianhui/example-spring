@@ -1,5 +1,5 @@
 # https://hub.docker.com/_/openjdk
-FROM openjdk:11
+FROM openjdk:11.0.5
 
 ARG JAR_FILE
 
