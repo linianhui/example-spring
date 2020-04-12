@@ -1,8 +1,6 @@
 # https://hub.docker.com/r/lnhcode/openjdk/tags
 FROM lnhcode/openjdk:8u242
 
-RUN ln -sf /bin/bash /bin/sh
-
 ARG JAR_FILE
 
 WORKDIR /app
