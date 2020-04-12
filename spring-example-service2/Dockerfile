@@ -1,5 +1,5 @@
 # https://hub.docker.com/r/lnhcode/openjdk/tags
-FROM lnhcode/openjdk:11.0.6
+FROM lnhcode/openjdk:8u242
 
 ARG JAR_FILE
 
@@ -7,6 +7,8 @@ WORKDIR /app
 
 COPY target/${JAR_FILE} app.jar
 
+ENV JAVA_OPTIONS='-XX:+UseG1GC -XX:+UseContainerSupport -XX:MaxRAMPercentage=75.00'
+
 EXPOSE 80
 
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["bash", "-c", "java $JAVA_OPTIONS -jar app.jar"]
