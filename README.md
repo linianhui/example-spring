@@ -3,8 +3,9 @@
 - [准备本地镜像服务](#准备本地镜像服务)
 - [添加namespace](#添加namespace)
 - [部署zipkin](#部署zipkin)
-- [部署service1](#部署service1)
-- [部署service2](#部署service2)
+- [部署service](#部署service)
+  - [部署service1](#部署service1)
+  - [部署service2](#部署service2)
 - [Send http2-prior-knowledge request](#send-http2-prior-knowledge-request)
 <!-- TOC -->
 
@@ -33,7 +34,14 @@ zipkin: <http://192.168.2.212:30088>
 kubectl apply --filename k8s/zipkin.yml
 ```
 
-# 部署service1
+# 部署service
+
+编译jar
+```bash
+./mvnw package
+```
+
+## 部署service1
 
 service1: <http://192.168.2.212:30001>
 
@@ -42,12 +50,12 @@ service1-actuator: <http://192.168.2.212:30001/.actuator>
 service1-doc: <http://192.168.2.212:30001/.doc/index.html>
 
 ```bash
-./mvnw package dockerfile:build dockerfile:push --projects spring-example-service1
+./mvnw dockerfile:build dockerfile:push --projects spring-example-service1
 
 kubectl apply --filename k8s/service1.yml
 ```
 
-# 部署service2
+## 部署service2
 
 service2: <http://192.168.2.212:30002>
 
@@ -56,7 +64,7 @@ service2-actuator: <http://192.168.2.212:30002/.actuator>
 service2-doc: <http://192.168.2.212:30002/.doc/index.html>
 
 ```bash
-./mvnw package dockerfile:build dockerfile:push --projects spring-example-service2
+./mvnw dockerfile:build dockerfile:push --projects spring-example-service2
 
 kubectl apply --filename k8s/service2.yml
 ```
