@@ -7,7 +7,7 @@
   <parent>
     <artifactId>spring-example</artifactId>
     <groupId>io.github.linianhui</groupId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1</version>
   </parent>
 
   <artifactId>spring-example-service1</artifactId>
