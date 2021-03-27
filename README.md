@@ -41,6 +41,11 @@ kubectl apply --filename k8s/zipkin.yml
 ./mvnw package
 ```
 
+添加供spring-kubenetes访问API-Server的权限。
+```bash
+kubectl apply --filename k8s/rbac.yml
+```
+
 ## 部署service1
 
 service1: <http://192.168.2.212:30001>
@@ -84,7 +89,7 @@ kubectl run tool --namespace spring-example --generator=run-pod/v1 --image=lnhco
       "protocol": "HTTP/2.0"
     },
     "example_properties": {
-      "a": "k8s config map form application.yml",
+      "a": "service1 form k8s configMap application.yml",
       "b": "b form application.yml",
       "c": "java hard code",
       "d": "java hard code"
@@ -95,7 +100,7 @@ kubectl run tool --namespace spring-example --generator=run-pod/v1 --image=lnhco
       "protocol": "HTTP/1.1"
     },
     "example_properties": {
-      "a": "k8s config map form application.yml",
+      "a": "service2 form k8s configMap application.yml",
       "b": "b form application.yml",
       "c": "java hard code",
       "d": "java hard code"

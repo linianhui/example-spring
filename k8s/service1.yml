@@ -6,7 +6,7 @@ metadata:
 data:
   application.yml: |-
     lnh.example:
-      a: 'k8s config map form application.yml'
+      a: 'service1 form k8s configMap application.yml'
 
 ---
 kind: Service
