@@ -12,3 +12,8 @@ operation::get-home[snippets='http-request,http-response']
 
 === 文件上传-混合JSON
 operation::v1-file-upload[snippets='http-request,http-response']
+
+=== Blog
+operation::v1-file-create[snippets='http-request,http-response']
+operation::v1-file-get-by-id[snippets='http-request,http-response']
+operation::v1-file-get-list[snippets='http-request,http-response']
