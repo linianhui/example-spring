@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+
+  service1.spring-example:
+    build:
+      context: .
+      dockerfile: ./service1/Dockerfile
+      args:
+        JAR_FILE: ./service1/target/service1-1.jar
+
+  service2.spring-example:
+    build:
+      context: .
+      dockerfile: ./service2/Dockerfile
+      args:
+        JAR_FILE: ./service2/target/service2-1.jar
