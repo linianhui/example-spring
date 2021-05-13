@@ -2,7 +2,7 @@
   "request": {
     "protocol": "HTTP/1.1"
   },
-  "request_class": "io.undertow.servlet.spec.HttpServletRequestImpl",
+  "request_class": "com.sun.proxy.$Proxy122",
   "example_properties": {
     "a": "a form application.yml",
     "b": "b form application.yml",

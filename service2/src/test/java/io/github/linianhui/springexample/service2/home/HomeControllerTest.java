@@ -1,9 +1,9 @@
 package io.github.linianhui.springexample.service2.home;
 
+import static org.springframework.restdocs.webtestclient.WebTestClientRestDocumentation.document;
+
 import io.github.linianhui.springexample.HttpTest;
 import org.junit.jupiter.api.Test;
-
-import static org.springframework.restdocs.webtestclient.WebTestClientRestDocumentation.document;
 
 
 class HomeControllerTest extends HttpTest {
@@ -18,7 +18,10 @@ class HomeControllerTest extends HttpTest {
             .expectBody()
             .consumeWith(getAssertUtil().assertJsonFileEquals(
                 "/home/response.json",
-                new String[]{"request.headers"}
+                new String[]{
+                        "request.headers",
+                        "request_class"
+                }
             ))
             .consumeWith(document("get-home"));
     }
