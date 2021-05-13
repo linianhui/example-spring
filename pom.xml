@@ -12,10 +12,10 @@
     <relativePath/>
   </parent>
 
-  <groupId>io.github.linianhui</groupId>
-  <artifactId>spring-example</artifactId>
+  <groupId>io.github.linianhui.springexample</groupId>
+  <artifactId>root</artifactId>
   <version>1</version>
-  <name>spring-example</name>
+  <name>root</name>
   <description>Spring example</description>
   <packaging>pom</packaging>
 
@@ -26,8 +26,8 @@
 
   <modules>
     <module>util</module>
-    <module>spring-example-service1</module>
-    <module>spring-example-service2</module>
+    <module>service1</module>
+    <module>service2</module>
   </modules>
 
   <dependencies>
@@ -52,7 +52,7 @@
         <scope>import</scope>
       </dependency>
       <dependency>
-        <groupId>io.github.linianhui</groupId>
+        <groupId>io.github.linianhui.springexample</groupId>
         <artifactId>util</artifactId>
         <version>1</version>
         <scope>test</scope>
@@ -132,7 +132,7 @@
             </execution>
           </executions>
           <configuration>
-            <repository>registry.test/${project.artifactId}</repository>
+            <repository>registry.test/spring-example-${project.artifactId}</repository>
             <tag>${project.version}</tag>
             <pullNewerImage>false</pullNewerImage>
             <buildArgs>
