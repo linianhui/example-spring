@@ -10,10 +10,16 @@
 === 获取首页
 operation::get-home[snippets='http-request,http-response']
 
+== 文件
+
 === 文件上传-混合JSON
 operation::v1-file-upload[snippets='http-request,http-response']
 
-=== Blog
-operation::v1-file-create[snippets='http-request,http-response']
-operation::v1-file-get-by-id[snippets='http-request,http-response']
-operation::v1-file-get-list[snippets='http-request,http-response']
+== Blog
+
+=== Blog-创建
+operation::v1-blog-create[snippets='http-request,http-response']
+=== Blog-获取ById
+operation::v1-blog-get-by-id[snippets='http-request,http-response']
+=== Blog-获取列表
+operation::v1-blog-get-list[snippets='http-request,http-response']
