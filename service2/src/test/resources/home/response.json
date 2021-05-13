@@ -2,6 +2,7 @@
   "request": {
     "protocol": "HTTP/1.1"
   },
+  "request_class": "io.undertow.servlet.spec.HttpServletRequestImpl",
   "example_properties": {
     "a": "a form application.yml",
     "b": "b form application.yml",

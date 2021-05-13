@@ -3,6 +3,7 @@ package io.github.linianhui.springexample.service2.home;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +20,7 @@ public class HomeController {
     public Object getHome(final HttpServletRequest request) {
         final Map<String, Object> map = new LinkedHashMap<>();
         map.put("request", getRequest(request));
+        map.put("request_class", request.getClass().getName());
         map.put("example_properties", exampleProperties);
         return map;
     }
