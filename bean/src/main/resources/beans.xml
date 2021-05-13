@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="
+            http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="testBean"
+          class="io.github.linianhui.springexample.bean.TestBean"
+          scope="singleton"
+          init-method="beanInitMethod"
+          destroy-method="beanDestroyMethod">
+        <property name="name" value="linianhui"/>
+    </bean>
+
+  <bean id="testBeanClassLoaderAware" class="io.github.linianhui.springexample.bean.TestBeanClassLoaderAware"/>
+  <bean id="testBeanFactoryAware" class="io.github.linianhui.springexample.bean.TestBeanFactoryAware"/>
+  <bean id="testInitializingBean" class="io.github.linianhui.springexample.bean.TestInitializingBean"/>
+  <bean id="testBeanNameAware" class="io.github.linianhui.springexample.bean.TestBeanNameAware"/>
+  <bean id="testDisposableBean" class="io.github.linianhui.springexample.bean.TestDisposableBean"/>
+  <bean id="testBeanPostProcessor" class="io.github.linianhui.springexample.bean.TestBeanPostProcessor"/>
+  <bean id="testInstantiationAwareBeanPostProcessor" class="io.github.linianhui.springexample.bean.TestInstantiationAwareBeanPostProcessor"/>
+  <bean id="testBeanFactoryPostProcessor" class="io.github.linianhui.springexample.bean.TestBeanFactoryPostProcessor"/>
+
+</beans>
