@@ -14,7 +14,7 @@ public class TestBean {
 
     public void setName(String name) {
         this.name = name;
-        LogUtil.logCaller();
+        LogUtil.logCaller(name);
     }
 
     public void beanInitMethod() {
