@@ -14,6 +14,7 @@
         <property name="name" value="linianhui"/>
     </bean>
 
+  <bean id="testBeanClassLoaderAware" class="io.github.linianhui.springexample.bean.TestBeanClassLoaderAware"/>
   <bean id="testBeanFactoryAware" class="io.github.linianhui.springexample.bean.TestBeanFactoryAware"/>
   <bean id="testInitializingBean" class="io.github.linianhui.springexample.bean.TestInitializingBean"/>
   <bean id="testBeanNameAware" class="io.github.linianhui.springexample.bean.TestBeanNameAware"/>
