@@ -16,5 +16,6 @@
 
   <bean id="testBeanPostProcessor" class="io.github.linianhui.springexample.bean.TestBeanPostProcessor"/>
   <bean id="testInstantiationAwareBeanPostProcessor" class="io.github.linianhui.springexample.bean.TestInstantiationAwareBeanPostProcessor"/>
+  <bean id="testBeanFactoryPostProcessor" class="io.github.linianhui.springexample.bean.TestBeanFactoryPostProcessor"/>
 
 </beans>
