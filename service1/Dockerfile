@@ -5,7 +5,7 @@ ARG JAR_FILE
 
 WORKDIR /app
 
-COPY target/${JAR_FILE} app.jar
+COPY ${JAR_FILE} app.jar
 
 ENV JAVA_OPTIONS='-XX:+UseG1GC -XX:+UseContainerSupport -XX:MaxRAMPercentage=75.00'
 
