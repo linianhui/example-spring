@@ -4,8 +4,8 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <artifactId>spring-example</artifactId>
-    <groupId>io.github.linianhui</groupId>
+    <groupId>io.github.linianhui.springexample</groupId>
+    <artifactId>root</artifactId>
     <version>1</version>
   </parent>
 
