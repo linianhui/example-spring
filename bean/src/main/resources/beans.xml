@@ -17,6 +17,7 @@
   <bean id="testBeanFactoryAware" class="io.github.linianhui.springexample.bean.TestBeanFactoryAware"/>
   <bean id="testInitializingBean" class="io.github.linianhui.springexample.bean.TestInitializingBean"/>
   <bean id="testBeanNameAware" class="io.github.linianhui.springexample.bean.TestBeanNameAware"/>
+  <bean id="testDisposableBean" class="io.github.linianhui.springexample.bean.TestDisposableBean"/>
   <bean id="testBeanPostProcessor" class="io.github.linianhui.springexample.bean.TestBeanPostProcessor"/>
   <bean id="testInstantiationAwareBeanPostProcessor" class="io.github.linianhui.springexample.bean.TestInstantiationAwareBeanPostProcessor"/>
   <bean id="testBeanFactoryPostProcessor" class="io.github.linianhui.springexample.bean.TestBeanFactoryPostProcessor"/>
