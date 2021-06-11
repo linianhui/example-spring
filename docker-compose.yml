@@ -43,3 +43,7 @@ services:
       dockerfile: ./service2/Dockerfile
       args:
         JAR_FILE: ./service2/target/service2-1.jar
+
+volumes:
+  volume_mysql:
+  volume_admin-mysql:
