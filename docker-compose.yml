@@ -2,30 +2,30 @@ version: "3"
 
 services:
 
-  mysql.test:
-    image: 'mysql:8.0.25'
-    restart: always
-    environment:
-      - MYSQL_ALLOW_EMPTY_PASSWORD=no
-      - MYSQL_ROOT_PASSWORD=1234
-      - MYSQL_DATABASE=test
-    ports:
-      - '3306:3306'
-    volumes:
-      - volume_mysql:/var/lib/mysql
-
-  admin.mysql.test:
-    image: 'phpmyadmin/phpmyadmin:5.1'
-    restart: always
-    environment:
-      - PMA_HOST=mysql.test
-      - PMA_PORT=3306
-      - MYSQL_ROOT_PASSWORD=1234
-      - PMA_ARBITRARY=1
-    ports:
-      - '13306:80'
-    volumes:
-      - volume_admin-mysql:/sessions
+#  mysql.test:
+#    image: 'mysql:8.0.25'
+#    restart: always
+#    environment:
+#      - MYSQL_ALLOW_EMPTY_PASSWORD=no
+#      - MYSQL_ROOT_PASSWORD=1234
+#      - MYSQL_DATABASE=test
+#    ports:
+#      - '3306:3306'
+#    volumes:
+#      - volume_mysql:/var/lib/mysql
+#
+#  admin.mysql.test:
+#    image: 'phpmyadmin/phpmyadmin:5.1'
+#    restart: always
+#    environment:
+#      - PMA_HOST=mysql.test
+#      - PMA_PORT=3306
+#      - MYSQL_ROOT_PASSWORD=1234
+#      - PMA_ARBITRARY=1
+#    ports:
+#      - '13306:80'
+#    volumes:
+#      - volume_admin-mysql:/sessions
 
   service1.spring-example:
     build:
