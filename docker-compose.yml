@@ -34,7 +34,7 @@ services:
       args:
         JAR_FILE: ./service1/target/service1-1.jar
     ports:
-      - '10080:80'
+      - '30001:80'
       - '15005:5005'
 
   service2.spring-example:

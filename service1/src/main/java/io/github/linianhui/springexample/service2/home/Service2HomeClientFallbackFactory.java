@@ -1,6 +1,6 @@
 package io.github.linianhui.springexample.service2.home;
 
-import feign.hystrix.FallbackFactory;
+import org.springframework.cloud.openfeign.FallbackFactory;
 import org.springframework.stereotype.Component;
 
 @Component
