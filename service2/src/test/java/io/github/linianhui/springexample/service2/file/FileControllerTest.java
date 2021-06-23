@@ -1,13 +1,13 @@
 package io.github.linianhui.springexample.service2.file;
 
+import static org.springframework.restdocs.webtestclient.WebTestClientRestDocumentation.document;
+
 import io.github.linianhui.springexample.HttpTest;
 import org.junit.jupiter.api.Test;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.MediaType;
 import org.springframework.http.client.MultipartBodyBuilder;
 import org.springframework.http.codec.multipart.MultipartHttpMessageReader;
-
-import static org.springframework.restdocs.webtestclient.WebTestClientRestDocumentation.document;
 
 
 public class FileControllerTest extends HttpTest {
@@ -41,7 +41,10 @@ public class FileControllerTest extends HttpTest {
             .expectStatus()
             .isOk()
             .expectBody()
-            .consumeWith(getAssertUtil().assertJsonFileEquals("/v1/file/upload/ok/response.json", new String[]{"now"}))
+            .consumeWith(getAssertUtil().assertJsonFileEquals(
+                "/v1/file/upload/ok/response.json",
+                new String[]{"now", "request_class"}
+            ))
             .consumeWith(document("v1-file-upload"));
     }
 }
