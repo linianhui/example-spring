@@ -1,9 +1,10 @@
 package io.github.linianhui.springexample.service1.home;
 
-import io.github.linianhui.springexample.service2.home.Service2HomeClient;
+import javax.servlet.http.HttpServletRequest;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import javax.servlet.http.HttpServletRequest;
+
+import io.github.linianhui.springexample.service2.Service2HomeClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

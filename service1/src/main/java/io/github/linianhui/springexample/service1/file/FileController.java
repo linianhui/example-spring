@@ -1,6 +1,6 @@
 package io.github.linianhui.springexample.service1.file;
 
-import io.github.linianhui.springexample.service2.file.Service2FileClient;
+import io.github.linianhui.springexample.service2.Service2FileClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
