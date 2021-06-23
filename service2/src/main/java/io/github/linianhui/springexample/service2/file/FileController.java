@@ -1,17 +1,25 @@
 package io.github.linianhui.springexample.service2.file;
 
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
-
+import javax.servlet.http.HttpServletRequest;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
+
 @RestController
 @RequestMapping(path = "/v1/file")
 public class FileController {
+    @Autowired
+    private HttpServletRequest request;
 
     @PostMapping(path = "upload")
     public Object uploadFile(
@@ -20,6 +28,8 @@ public class FileController {
         final @RequestPart(name = "files") MultipartFile[] multipartFiles
     ) {
         final Map<String, Object> map = new LinkedHashMap<>();
+        map.put("request", getRequest(request));
+        map.put("request_class", request.getClass().getName());
         map.put("now", LocalDateTime.now(ZoneOffset.UTC).toString());
         map.put("id", id);
         map.put("pojo", pojo);
@@ -36,5 +46,13 @@ public class FileController {
         filePropertyMap.put("length", multipartFile.getSize());
         filePropertyMap.put("content_type", multipartFile.getContentType());
         return filePropertyMap;
+    }
+
+    private static Map<String, Object> getRequest(
+        final HttpServletRequest request
+    ) {
+        final Map<String, Object> map = new LinkedHashMap<>();
+        map.put("protocol", request.getProtocol());
+        return map;
     }
 }
