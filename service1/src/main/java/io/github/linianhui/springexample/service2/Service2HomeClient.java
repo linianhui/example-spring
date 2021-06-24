@@ -1,13 +1,14 @@
 package io.github.linianhui.springexample.service2;
 
-import io.github.linianhui.springexample.service1.config.FeignH2PriorKnowledgeConfig;
+import io.github.linianhui.springexample.service2.config.FeignH2PriorKnowledgeConfig;
 import org.springframework.cloud.openfeign.FallbackFactory;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @FeignClient(
-    name = "2home",
+    name = "service2",
+    contextId = "home",
     primary = false,
     url = Constants.URL,
     fallbackFactory = Service2HomeClient.DefaultFallbackFactory.class,
@@ -20,7 +21,7 @@ public interface Service2HomeClient {
 
     /**
      * FeignCircuitBreakerInvocationHandler
-     * **/
+     **/
     @Component
     class DefaultFallbackFactory implements FallbackFactory<Service2HomeClient> {
 
