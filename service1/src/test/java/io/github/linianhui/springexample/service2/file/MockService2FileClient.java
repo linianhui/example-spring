@@ -1,5 +1,6 @@
 package io.github.linianhui.springexample.service2.file;
 
+import io.github.linianhui.springexample.service2.Service2FileClient;
 import org.mockito.invocation.InvocationOnMock;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

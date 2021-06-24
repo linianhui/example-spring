@@ -43,7 +43,7 @@ public class FileControllerTest extends HttpTest {
             .expectBody()
             .consumeWith(getAssertUtil().assertJsonFileEquals(
                 "/v1/file/upload/ok/response.json",
-                new String[]{"now", "request_class"}
+                new String[]{"now", "request"}
             ))
             .consumeWith(document("v1-file-upload"));
     }

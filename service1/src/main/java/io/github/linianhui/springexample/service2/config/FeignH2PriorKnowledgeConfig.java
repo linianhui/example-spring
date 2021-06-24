@@ -1,12 +1,11 @@
-package io.github.linianhui.springexample.service1.config;
+package io.github.linianhui.springexample.service2.config;
 
 import feign.Client;
 import feign.okhttp.OkHttpClient;
+import io.github.linianhui.springexample.service1.config.H2PriorKnowledgeOkHttpClient;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 
 
-@Configuration
 public class FeignH2PriorKnowledgeConfig {
 
     @Bean

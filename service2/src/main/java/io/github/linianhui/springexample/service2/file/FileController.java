@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import io.github.linianhui.springexample.util.HttpServletRequestUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,22 +22,6 @@ public class FileController {
     @Autowired
     private HttpServletRequest request;
 
-    @PostMapping(path = "upload")
-    public Object uploadFile(
-        final @RequestParam(name = "id") String id,
-        final @RequestPart(name = "pojo", required = false) POJO pojo,
-        final @RequestPart(name = "files") MultipartFile[] multipartFiles
-    ) {
-        final Map<String, Object> map = new LinkedHashMap<>();
-        map.put("request", getRequest(request));
-        map.put("request_class", request.getClass().getName());
-        map.put("now", LocalDateTime.now(ZoneOffset.UTC).toString());
-        map.put("id", id);
-        map.put("pojo", pojo);
-        map.put("file_properties", Arrays.stream(multipartFiles).map(FileController::readFileProperty).toArray());
-        return map;
-    }
-
     private static Object readFileProperty(
         final MultipartFile multipartFile
     ) {
@@ -48,11 +33,18 @@ public class FileController {
         return filePropertyMap;
     }
 
-    private static Map<String, Object> getRequest(
-        final HttpServletRequest request
+    @PostMapping(path = "upload")
+    public Object uploadFile(
+        final @RequestParam(name = "id") String id,
+        final @RequestPart(name = "pojo", required = false) POJO pojo,
+        final @RequestPart(name = "files") MultipartFile[] multipartFiles
     ) {
         final Map<String, Object> map = new LinkedHashMap<>();
-        map.put("protocol", request.getProtocol());
+        map.put("request", HttpServletRequestUtil.getRequest((request)));
+        map.put("now", LocalDateTime.now(ZoneOffset.UTC).toString());
+        map.put("id", id);
+        map.put("pojo", pojo);
+        map.put("file_properties", Arrays.stream(multipartFiles).map(FileController::readFileProperty).toArray());
         return map;
     }
 }

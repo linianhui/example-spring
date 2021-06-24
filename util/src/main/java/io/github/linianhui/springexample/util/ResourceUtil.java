@@ -1,10 +1,10 @@
-package io.github.linianhui.util;
-
-import lombok.AllArgsConstructor;
-import org.apache.commons.io.IOUtils;
+package io.github.linianhui.springexample.util;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+
+import lombok.AllArgsConstructor;
+import org.apache.commons.io.IOUtils;
 
 @AllArgsConstructor(staticName = "of")
 public class ResourceUtil {
