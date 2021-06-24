@@ -1,8 +1,8 @@
 {
   "request": {
+    "class": "com.sun.proxy.$Proxy114",
     "protocol": "HTTP/1.1"
   },
-  "request_class": "com.sun.proxy.$Proxy114",
   "now": "2021-06-23T06:11:17.928593900",
   "id": "id-value",
   "pojo": {
