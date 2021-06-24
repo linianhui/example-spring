@@ -1,4 +1,4 @@
-package io.github.linianhui.util;
+package io.github.linianhui.springexample.util;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Enumeration;

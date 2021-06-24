@@ -19,8 +19,7 @@ class HomeControllerTest extends HttpTest {
             .consumeWith(getAssertUtil().assertJsonFileEquals(
                 "/home/response.json",
                 new String[]{
-                        "request.headers",
-                        "request_class"
+                    "request"
                 }
             ))
             .consumeWith(document("get-home"));

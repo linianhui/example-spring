@@ -1,8 +1,8 @@
 {
   "request": {
-    "protocol": "HTTP/1.1"
+    "protocol": "HTTP/1.1",
+    "class": "com.sun.proxy.$Proxy122"
   },
-  "request_class": "com.sun.proxy.$Proxy122",
   "example_properties": {
     "a": "a form application.yml",
     "b": "b form application.yml",

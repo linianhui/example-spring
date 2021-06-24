@@ -1,4 +1,4 @@
-package io.github.linianhui.util;
+package io.github.linianhui.springexample.util;
 
 abstract class BaseTest {
 

@@ -1,14 +1,14 @@
-package io.github.linianhui.util;
-
-import org.json.JSONException;
-import org.skyscreamer.jsonassert.JSONCompareMode;
-import org.skyscreamer.jsonassert.JSONCompareResult;
-import org.skyscreamer.jsonassert.comparator.DefaultComparator;
+package io.github.linianhui.springexample.util;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
+
+import org.json.JSONException;
+import org.skyscreamer.jsonassert.JSONCompareMode;
+import org.skyscreamer.jsonassert.JSONCompareResult;
+import org.skyscreamer.jsonassert.comparator.DefaultComparator;
 
 class JsonComparator extends DefaultComparator {
     private List<Pattern> ignoreFieldRegexPathList = null;

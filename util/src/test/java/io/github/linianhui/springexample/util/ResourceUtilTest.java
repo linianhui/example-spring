@@ -1,4 +1,4 @@
-package io.github.linianhui.util;
+package io.github.linianhui.springexample.util;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

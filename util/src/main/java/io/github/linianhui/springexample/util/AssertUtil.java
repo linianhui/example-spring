@@ -1,4 +1,8 @@
-package io.github.linianhui.util;
+package io.github.linianhui.springexample.util;
+
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.util.function.Consumer;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,10 +11,6 @@ import org.skyscreamer.jsonassert.JSONAssert;
 import org.skyscreamer.jsonassert.JSONCompareMode;
 import org.skyscreamer.jsonassert.comparator.DefaultComparator;
 import org.springframework.test.web.reactive.server.EntityExchangeResult;
-
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.util.function.Consumer;
 
 @Getter
 @AllArgsConstructor(staticName = "of")
