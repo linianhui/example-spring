@@ -16,6 +16,20 @@ GET http://registry.test/v2/spring-example-service2/tags/list
 ### 首页
 GET {{HOST}}
 
+### Blog-添加
+POST {{HOST}}/v1/blog
+Content-Type: application/json
+
+{
+  "title": "title-{{$guid}}"
+}
+
+### Blog-获取列表
+GET {{HOST}}/v1/blog
+
+### Blog-获取ById
+GET {{HOST}}/v1/blog/1
+
 
 ### 上传文件 + JSON
 POST {{HOST}}/v1/file/upload
