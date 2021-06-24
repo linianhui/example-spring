@@ -15,17 +15,17 @@ import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
 
 @FeignClient(
-        name = "service2",
-        primary = false,
-        url = Constants.URL,
-        configuration = Service2FileClient.Configuration.class
+    name = "2file",
+    primary = false,
+    url = Constants.URL,
+    configuration = Service2FileClient.Configuration.class
 )
 public interface Service2FileClient {
 
     @PostMapping(path = "/v1/file/upload", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     Object uploadFile(
-            @RequestParam(name = "id") String id,
-            @RequestPart(name = "files") MultipartFile multipartFiles
+        @RequestParam(name = "id") String id,
+        @RequestPart(name = "files") MultipartFile multipartFiles
     );
 
     /**

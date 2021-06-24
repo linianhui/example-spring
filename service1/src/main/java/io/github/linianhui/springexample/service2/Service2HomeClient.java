@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @FeignClient(
-    name = "service2",
+    name = "2home",
     primary = false,
     url = Constants.URL,
     fallbackFactory = Service2HomeClient.DefaultFallbackFactory.class,
