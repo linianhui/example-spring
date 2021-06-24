@@ -2,17 +2,15 @@ version: "3"
 
 services:
 
-#  mysql.test:
-#    image: 'mysql:8.0.25'
-#    restart: always
-#    environment:
-#      - MYSQL_ALLOW_EMPTY_PASSWORD=no
-#      - MYSQL_ROOT_PASSWORD=1234
-#      - MYSQL_DATABASE=test
-#    ports:
-#      - '3306:3306'
-#    volumes:
-#      - volume_mysql:/var/lib/mysql
+  mysql.test:
+    image: 'mysql:8.0.25'
+    restart: always
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=no
+      - MYSQL_ROOT_PASSWORD=1234
+      - MYSQL_DATABASE=test
+    volumes:
+      - volume_mysql:/var/lib/mysql
 #
 #  admin.mysql.test:
 #    image: 'phpmyadmin/phpmyadmin:5.1'
