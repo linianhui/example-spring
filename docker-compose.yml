@@ -2,6 +2,11 @@ version: "3"
 
 services:
 
+  zipkin.spring-example:
+    image: openzipkin/zipkin
+    ports:
+      - '9411:9411'
+
   mysql.test:
     image: 'mysql:8.0.25'
     restart: always
