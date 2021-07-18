@@ -28,10 +28,12 @@ kubectl apply --filename k8s/namespace.yml
 
 # 部署zipkin
 
-zipkin: <http://192.168.2.212:30088>
+zipkin: <http://127.0.0.1:39411>
 
 ```bash
 kubectl apply --filename k8s/zipkin.yml
+
+kubectl port-forward service/zipkin -n spring-example 39411:9411
 ```
 
 # 部署service
@@ -48,30 +50,34 @@ kubectl apply --filename k8s/rbac.yml
 
 ## 部署service1
 
-service1: <http://192.168.2.212:30001>
+service1: <http://127.0.0.1:30001>
 
-service1-actuator: <http://192.168.2.212:30001/.actuator>
+service1-actuator: <http://127.0.0.1:30001/.actuator>
 
-service1-doc: <http://192.168.2.212:30001/.doc/index.html>
+service1-doc: <http://127.0.0.1:30001/.doc/index.html>
 
 ```bash
 ./mvnw dockerfile:build dockerfile:push --projects service1
 
 kubectl apply --filename k8s/service1.yml
+
+kubectl port-forward service/service1 -n spring-example 30001:80 35005:5005
 ```
 
 ## 部署service2
 
-service2: <http://192.168.2.212:30002>
+service2: <http://127.0.0.1:30002>
 
-service2-actuator: <http://192.168.2.212:30002/.actuator>
+service2-actuator: <http://127.0.0.1:30002/.actuator>
 
-service2-doc: <http://192.168.2.212:30002/.doc/index.html>
+service2-doc: <http://127.0.0.1:30002/.doc/index.html>
 
 ```bash
 ./mvnw dockerfile:build dockerfile:push --projects service2
 
 kubectl apply --filename k8s/service2.yml
+
+kubectl port-forward service/service2 -n spring-example 30002:80 35006:5005
 ```
 
 
