@@ -17,11 +17,14 @@ metadata:
 spec:
   selector:
     app: service1
-  type: NodePort
+  type: ClusterIP
   ports:
-    - port: 80
+    - name: http
+      port: 80
       targetPort: 80
-      nodePort: 30001
+    - name: debug
+      port: 5005
+      targetPort: 5005
 
 ---
 kind: Deployment
@@ -46,6 +49,8 @@ spec:
           ports:
             - name: http
               containerPort: 80
+            - name: debug
+              containerPort: 5005
           env:
             - name: spring.profiles.active
               value: prod

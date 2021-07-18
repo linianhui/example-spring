@@ -6,11 +6,10 @@ metadata:
 spec:
   selector:
     app: zipkin
-  type: NodePort
+  type: ClusterIP
   ports:
     - port: 9411
       targetPort: 9411
-      nodePort: 30088
 
 ---
 kind: Deployment
