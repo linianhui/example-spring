@@ -40,9 +40,9 @@
 
   <modules>
     <module>util</module>
-    <module>service1</module>
-    <module>service2</module>
     <module>bean</module>
+    <module>gateway</module>
+    <module>cms</module>
   </modules>
 
   <dependencies>
@@ -162,7 +162,7 @@
             </execution>
           </executions>
           <configuration>
-            <repository>registry.test/spring-example-${project.artifactId}</repository>
+            <repository>registry.test/example-${project.artifactId}</repository>
             <tag>${project.version}</tag>
             <pullNewerImage>false</pullNewerImage>
             <buildArgs>

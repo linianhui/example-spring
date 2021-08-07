@@ -2,7 +2,7 @@ version: "3"
 
 services:
 
-  zipkin.spring-example:
+  zipkin.example:
     image: openzipkin/zipkin
     ports:
       - '9411:9411'
@@ -30,22 +30,22 @@ services:
 #    volumes:
 #      - volume_admin-mysql:/sessions
 
-  service1.spring-example:
+  gateway.example:
     build:
       context: .
-      dockerfile: ./service1/Dockerfile
+      dockerfile: ./gateway/Dockerfile
       args:
-        JAR_FILE: ./service1/target/service1-1.jar
+        JAR_FILE: ./gateway/target/gateway-1.jar
     ports:
       - '30001:80'
       - '15005:5005'
 
-  service2.spring-example:
+  cms.example:
     build:
       context: .
-      dockerfile: ./service2/Dockerfile
+      dockerfile: ./cms/Dockerfile
       args:
-        JAR_FILE: ./service2/target/service2-1.jar
+        JAR_FILE: ./cms/target/cms-1.jar
 
 volumes:
   volume_mysql:

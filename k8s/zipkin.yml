@@ -2,7 +2,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: zipkin
-  namespace: spring-example
+  namespace: example
 spec:
   selector:
     app: zipkin
@@ -16,7 +16,7 @@ kind: Deployment
 apiVersion: apps/v1
 metadata:
   name: zipkin
-  namespace: spring-example
+  namespace: example
 spec:
   replicas: 1
   selector:
