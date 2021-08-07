@@ -5,9 +5,9 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>io.github.linianhui.springexample</groupId>
-    <artifactId>root</artifactId>
-    <version>1</version>
+    <groupId>io.github.linianhui.example.spring</groupId>
+    <artifactId>parent</artifactId>
+    <version>${reversion}</version>
   </parent>
 
   <artifactId>service2</artifactId>
@@ -50,7 +50,7 @@
       <scope>runtime</scope>
     </dependency>
     <dependency>
-      <groupId>io.github.linianhui.springexample</groupId>
+      <groupId>io.github.linianhui.example.spring</groupId>
       <artifactId>util</artifactId>
     </dependency>
     <!-- https://mvnrepository.com/artifact/org.mybatis.spring.boot/mybatis-spring-boot-starter -->
