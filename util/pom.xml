@@ -17,7 +17,6 @@
       <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
       <groupId>commons-io</groupId>
       <artifactId>commons-io</artifactId>
-      <version>2.7</version>
     </dependency>
 
     <dependency>
