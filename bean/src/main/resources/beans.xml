@@ -6,21 +6,21 @@
             http://www.springframework.org/schema/beans
             http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="testBean"
-          class="io.github.linianhui.springexample.bean.TestBean"
-          scope="singleton"
-          init-method="beanInitMethod"
-          destroy-method="beanDestroyMethod">
-        <property name="name" value="linianhui"/>
-    </bean>
+  <bean id="testBean"
+        class="example.bean.TestBean"
+        scope="singleton"
+        init-method="beanInitMethod"
+        destroy-method="beanDestroyMethod">
+    <property name="name" value="linianhui"/>
+  </bean>
 
-  <bean id="testBeanClassLoaderAware" class="io.github.linianhui.springexample.bean.TestBeanClassLoaderAware"/>
-  <bean id="testBeanFactoryAware" class="io.github.linianhui.springexample.bean.TestBeanFactoryAware"/>
-  <bean id="testInitializingBean" class="io.github.linianhui.springexample.bean.TestInitializingBean"/>
-  <bean id="testBeanNameAware" class="io.github.linianhui.springexample.bean.TestBeanNameAware"/>
-  <bean id="testDisposableBean" class="io.github.linianhui.springexample.bean.TestDisposableBean"/>
-  <bean id="testBeanPostProcessor" class="io.github.linianhui.springexample.bean.TestBeanPostProcessor"/>
-  <bean id="testInstantiationAwareBeanPostProcessor" class="io.github.linianhui.springexample.bean.TestInstantiationAwareBeanPostProcessor"/>
-  <bean id="testBeanFactoryPostProcessor" class="io.github.linianhui.springexample.bean.TestBeanFactoryPostProcessor"/>
+  <bean id="testBeanClassLoaderAware" class="example.bean.TestBeanClassLoaderAware"/>
+  <bean id="testBeanFactoryAware" class="example.bean.TestBeanFactoryAware"/>
+  <bean id="testInitializingBean" class="example.bean.TestInitializingBean"/>
+  <bean id="testBeanNameAware" class="example.bean.TestBeanNameAware"/>
+  <bean id="testDisposableBean" class="example.bean.TestDisposableBean"/>
+  <bean id="testBeanPostProcessor" class="example.bean.TestBeanPostProcessor"/>
+  <bean id="testInstantiationAwareBeanPostProcessor" class="example.bean.TestInstantiationAwareBeanPostProcessor"/>
+  <bean id="testBeanFactoryPostProcessor" class="example.bean.TestBeanFactoryPostProcessor"/>
 
 </beans>

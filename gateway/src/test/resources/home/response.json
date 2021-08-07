@@ -1,0 +1,16 @@
+{
+  "gateway": {
+    "request": {
+      "protocol": "HTTP/1.1"
+    },
+    "example_properties": {
+      "a": "a form application.yml",
+      "b": "b form application.yml",
+      "c": "java hard code",
+      "d": "java hard code"
+    }
+  },
+  "cms": {
+    "a": "form mock cms"
+  }
+}

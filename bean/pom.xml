@@ -33,7 +33,7 @@
         <configuration>
           <archive>
             <manifest>
-              <mainClass>io.github.linianhui.springexample.bean.App</mainClass>
+              <mainClass>example.bean.App</mainClass>
             </manifest>
           </archive>
           <descriptorRefs>
