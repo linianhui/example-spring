@@ -47,6 +47,9 @@ services:
   cms-web.example:
     build: cms-web
 
+  cms-rpc.example:
+    build: cms-rpc
+
 volumes:
   volume_mysql:
   volume_admin-mysql:
