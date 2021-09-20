@@ -42,7 +42,9 @@
     <module>util</module>
     <module>bean</module>
     <module>gateway</module>
-    <module>cms</module>
+    <module>cms-dto</module>
+    <module>cms-service</module>
+    <module>cms-web</module>
   </modules>
 
   <dependencies>
@@ -69,6 +71,16 @@
       <dependency>
         <groupId>io.github.linianhui.example.spring</groupId>
         <artifactId>util</artifactId>
+        <version>${reversion}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.github.linianhui.example.spring</groupId>
+        <artifactId>cms-dto</artifactId>
+        <version>${reversion}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.github.linianhui.example.spring</groupId>
+        <artifactId>cms-service</artifactId>
         <version>${reversion}</version>
       </dependency>
       <!-- https://mvnrepository.com/artifact/org.mybatis.spring.boot/mybatis-spring-boot-starter -->

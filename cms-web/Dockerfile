@@ -3,7 +3,7 @@ FROM ghcr.io/linianhui/openjdk:11.0.10
 
 WORKDIR /app
 
-COPY target/gateway-1.1.jar app.jar
+COPY target/cms-web-1.1.jar app.jar
 
 ENV JAVA_OPTIONS='-XX:+UseG1GC -XX:+UseContainerSupport -XX:MaxRAMPercentage=75.00'
 
