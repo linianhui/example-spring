@@ -33,10 +33,14 @@ services:
   zookeeper-1.test:
     build: zookeeper
     restart: always
-    ports:
-      - '30080:8080' # /commands
     volumes:
       - volume_zookeeper-1:/data
+
+  dubbo-admin.test: # username:password root:root
+    image: ghcr.io/linianhui/dubbo-admin:0.3.0
+    restart: always
+    ports:
+      - '30080:8080'
 
   gateway.example:
     build: gateway
