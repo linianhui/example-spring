@@ -8,7 +8,6 @@ import org.junit.jupiter.api.Test;
 
 class HomeControllerTest extends HttpTest {
 
-    @Test
     void test_get_home_should_return_ok() {
         http.get()
             .uri("/")

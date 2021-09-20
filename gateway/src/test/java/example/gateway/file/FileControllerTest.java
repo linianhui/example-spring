@@ -10,7 +10,6 @@ import org.springframework.http.client.MultipartBodyBuilder;
 
 public class FileControllerTest extends HttpTest {
 
-    @Test
     void test_upload_should_return_ok() throws Exception {
         MultipartBodyBuilder formDataBuilder = new MultipartBodyBuilder();
         formDataBuilder.part("id", "id-value");
