@@ -30,6 +30,14 @@ services:
 #    volumes:
 #      - volume_admin-mysql:/sessions
 
+  zookeeper-1.test:
+    build: zookeeper
+    restart: always
+    ports:
+      - '30080:8080' # /commands
+    volumes:
+      - volume_zookeeper-1:/data
+
   gateway.example:
     build: gateway
     ports:
@@ -39,6 +47,10 @@ services:
   cms-web.example:
     build: cms-web
 
+  cms-rpc.example:
+    build: cms-rpc
+
 volumes:
   volume_mysql:
   volume_admin-mysql:
+  volume_zookeeper-1:
