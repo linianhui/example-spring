@@ -45,6 +45,7 @@
     <module>cms-dto</module>
     <module>cms-service</module>
     <module>cms-web</module>
+    <module>cms-rpc-api</module>
   </modules>
 
   <dependencies>
@@ -81,6 +82,11 @@
       <dependency>
         <groupId>io.github.linianhui.example.spring</groupId>
         <artifactId>cms-service</artifactId>
+        <version>${reversion}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.github.linianhui.example.spring</groupId>
+        <artifactId>cms-rpc-api</artifactId>
         <version>${reversion}</version>
       </dependency>
       <!-- https://mvnrepository.com/artifact/org.mybatis.spring.boot/mybatis-spring-boot-starter -->
