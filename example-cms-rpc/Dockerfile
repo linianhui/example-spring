@@ -1,9 +1,11 @@
 # https://hub.docker.com/r/lnhcode/openjdk/tags
 FROM ghcr.io/linianhui/openjdk:11.0.10
 
+ARG JAR_FILE
+
 WORKDIR /app
 
-COPY target/cms-rpc-1.1.jar app.jar
+COPY JAR_FILE app.jar
 
 ENV JAVA_OPTIONS='-XX:+UseG1GC -XX:+UseContainerSupport -XX:MaxRAMPercentage=75.00'
 

@@ -43,16 +43,25 @@ services:
       - '30080:8080'
 
   gateway.example:
-    build: gateway
+    build:
+      context: /example-gateway
+      args:
+        JAR_FILE: target/example-gateway-1.1.jar
     ports:
       - '30001:80'
       - '15005:5005'
 
   cms-web.example:
-    build: cms-web
+    build:
+      context: ./example-cms-web/
+      args:
+        JAR_FILE: target/example-cms-web-1.1.jar
 
   cms-rpc.example:
-    build: cms-rpc
+    build:
+      context: ./example-cms-rpc
+      args:
+        JAR_FILE: target/example-cms-rpc-1.1.jar
 
 volumes:
   volume_mysql:
