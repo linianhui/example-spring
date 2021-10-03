@@ -14,12 +14,11 @@
 
   <groupId>io.github.linianhui.example.spring</groupId>
   <artifactId>parent</artifactId>
-  <name>parent</name>
-  <version>${reversion}</version>
+  <version>${revison}</version>
   <packaging>pom</packaging>
 
   <properties>
-    <reversion>1.1</reversion>
+    <revison>1.1</revison>
 
     <!-- java  -->
     <java.version>11</java.version>
@@ -73,22 +72,22 @@
       <dependency>
         <groupId>io.github.linianhui.example.spring</groupId>
         <artifactId>util</artifactId>
-        <version>${reversion}</version>
+        <version>${revison}</version>
       </dependency>
       <dependency>
         <groupId>io.github.linianhui.example.spring</groupId>
         <artifactId>cms-dto</artifactId>
-        <version>${reversion}</version>
+        <version>${revison}</version>
       </dependency>
       <dependency>
         <groupId>io.github.linianhui.example.spring</groupId>
         <artifactId>cms-service</artifactId>
-        <version>${reversion}</version>
+        <version>${revison}</version>
       </dependency>
       <dependency>
         <groupId>io.github.linianhui.example.spring</groupId>
         <artifactId>cms-rpc-api</artifactId>
-        <version>${reversion}</version>
+        <version>${revison}</version>
       </dependency>
       <!-- https://mvnrepository.com/artifact/org.mybatis.spring.boot/mybatis-spring-boot-starter -->
       <dependency>
