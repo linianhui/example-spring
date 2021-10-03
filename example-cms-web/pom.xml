@@ -6,11 +6,11 @@
 
   <parent>
     <groupId>io.github.linianhui.example.spring</groupId>
-    <artifactId>parent</artifactId>
-    <version>${reversion}</version>
+    <artifactId>example-parent</artifactId>
+    <version>${revison}</version>
   </parent>
 
-  <artifactId>cms-web</artifactId>
+  <artifactId>example-cms-web</artifactId>
 
   <dependencies>
 
@@ -51,7 +51,11 @@
     </dependency>
     <dependency>
       <groupId>io.github.linianhui.example.spring</groupId>
-      <artifactId>cms-service</artifactId>
+      <artifactId>example-cms-service</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
     </dependency>
 
     <!-- test -->

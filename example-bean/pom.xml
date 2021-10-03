@@ -6,16 +6,21 @@
 
   <parent>
     <groupId>io.github.linianhui.example.spring</groupId>
-    <artifactId>parent</artifactId>
-    <version>${reversion}</version>
+    <artifactId>example-parent</artifactId>
+    <version>${revison}</version>
   </parent>
 
-  <artifactId>bean</artifactId>
+  <artifactId>example-bean</artifactId>
 
   <dependencies>
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-context</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <scope>provided</scope>
     </dependency>
   </dependencies>
   <build>

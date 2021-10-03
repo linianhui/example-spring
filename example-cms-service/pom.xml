@@ -2,28 +2,24 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <parent>
-    <artifactId>parent</artifactId>
-    <groupId>io.github.linianhui.example.spring</groupId>
-    <version>${reversion}</version>
-  </parent>
   <modelVersion>4.0.0</modelVersion>
 
-  <artifactId>cms-service</artifactId>
+  <parent>
+    <artifactId>example-parent</artifactId>
+    <groupId>io.github.linianhui.example.spring</groupId>
+    <version>${revison}</version>
+  </parent>
 
-  <properties>
-    <maven.compiler.source>11</maven.compiler.source>
-    <maven.compiler.target>11</maven.compiler.target>
-  </properties>
+  <artifactId>example-cms-service</artifactId>
 
   <dependencies>
     <dependency>
       <groupId>io.github.linianhui.example.spring</groupId>
-      <artifactId>util</artifactId>
+      <artifactId>example-util</artifactId>
     </dependency>
     <dependency>
       <groupId>io.github.linianhui.example.spring</groupId>
-      <artifactId>cms-dto</artifactId>
+      <artifactId>example-cms-dto</artifactId>
     </dependency>
     <dependency>
       <groupId>org.mybatis.spring.boot</groupId>
@@ -32,6 +28,10 @@
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
     </dependency>
   </dependencies>
 

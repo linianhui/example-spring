@@ -6,14 +6,17 @@
 
   <parent>
     <groupId>io.github.linianhui.example.spring</groupId>
-    <artifactId>parent</artifactId>
-    <version>${reversion}</version>
+    <artifactId>example-parent</artifactId>
+    <version>${revison}</version>
   </parent>
 
-  <artifactId>gateway</artifactId>
+  <artifactId>example-gateway</artifactId>
 
   <dependencies>
-
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+    </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
@@ -59,7 +62,7 @@
     </dependency>
     <dependency>
       <groupId>io.github.linianhui.example.spring</groupId>
-      <artifactId>util</artifactId>
+      <artifactId>example-util</artifactId>
     </dependency>
     <dependency>
       <groupId>io.github.openfeign</groupId>
@@ -89,7 +92,7 @@
     </dependency>
     <dependency>
       <groupId>io.github.linianhui.example.spring</groupId>
-      <artifactId>cms-rpc-api</artifactId>
+      <artifactId>example-cms-rpc-api</artifactId>
     </dependency>
 
     <!-- test -->

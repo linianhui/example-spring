@@ -5,16 +5,20 @@
 
   <parent>
     <groupId>io.github.linianhui.example.spring</groupId>
-    <artifactId>parent</artifactId>
-    <version>${reversion}</version>
+    <artifactId>example-parent</artifactId>
+    <version>${revison}</version>
   </parent>
 
-  <artifactId>util</artifactId>
+  <artifactId>example-util</artifactId>
 
   <dependencies>
 
     <dependency>
-      <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+    </dependency>
+
+    <dependency>
       <groupId>commons-io</groupId>
       <artifactId>commons-io</artifactId>
     </dependency>
@@ -25,21 +29,18 @@
     </dependency>
 
     <dependency>
-      <!-- https://mvnrepository.com/artifact/org.skyscreamer/jsonassert -->
       <groupId>org.skyscreamer</groupId>
       <artifactId>jsonassert</artifactId>
       <optional>true</optional>
     </dependency>
 
     <dependency>
-      <!-- https://mvnrepository.com/artifact/org.springframework/spring-test -->
       <groupId>org.springframework</groupId>
       <artifactId>spring-test</artifactId>
       <optional>true</optional>
     </dependency>
 
     <dependency>
-      <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter -->
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter</artifactId>
       <scope>test</scope>
