@@ -6,11 +6,11 @@
 
   <parent>
     <groupId>io.github.linianhui.example.spring</groupId>
-    <artifactId>parent</artifactId>
+    <artifactId>example-parent</artifactId>
     <version>${revison}</version>
   </parent>
 
-  <artifactId>bean</artifactId>
+  <artifactId>example-bean</artifactId>
 
   <dependencies>
     <dependency>

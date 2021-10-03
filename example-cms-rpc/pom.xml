@@ -2,14 +2,15 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <parent>
-    <artifactId>parent</artifactId>
-    <groupId>io.github.linianhui.example.spring</groupId>
-    <version>${revison}</version>
-  </parent>
   <modelVersion>4.0.0</modelVersion>
 
-  <artifactId>cms-rpc</artifactId>
+  <parent>
+    <groupId>io.github.linianhui.example.spring</groupId>
+    <artifactId>example-parent</artifactId>
+    <version>${revison}</version>
+  </parent>
+
+  <artifactId>example-cms-rpc</artifactId>
   <dependencies>
     <dependency>
       <groupId>org.apache.dubbo</groupId>
@@ -27,11 +28,11 @@
     </dependency>
     <dependency>
       <groupId>io.github.linianhui.example.spring</groupId>
-      <artifactId>cms-rpc-api</artifactId>
+      <artifactId>example-cms-rpc-api</artifactId>
     </dependency>
     <dependency>
       <groupId>io.github.linianhui.example.spring</groupId>
-      <artifactId>cms-service</artifactId>
+      <artifactId>example-cms-service</artifactId>
     </dependency>
     <dependency>
       <groupId>org.apache.curator</groupId>

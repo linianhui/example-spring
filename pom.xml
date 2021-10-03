@@ -13,7 +13,7 @@
   </parent>
 
   <groupId>io.github.linianhui.example.spring</groupId>
-  <artifactId>parent</artifactId>
+  <artifactId>example-parent</artifactId>
   <version>${revison}</version>
   <packaging>pom</packaging>
 
@@ -38,14 +38,14 @@
   </properties>
 
   <modules>
-    <module>util</module>
-    <module>bean</module>
-    <module>gateway</module>
-    <module>cms-dto</module>
-    <module>cms-service</module>
-    <module>cms-web</module>
-    <module>cms-rpc-api</module>
-    <module>cms-rpc</module>
+    <module>example-util</module>
+    <module>example-bean</module>
+    <module>example-gateway</module>
+    <module>example-cms-dto</module>
+    <module>example-cms-service</module>
+    <module>example-cms-web</module>
+    <module>example-cms-rpc-api</module>
+    <module>example-cms-rpc</module>
   </modules>
 
   <dependencies>
@@ -71,22 +71,22 @@
       </dependency>
       <dependency>
         <groupId>io.github.linianhui.example.spring</groupId>
-        <artifactId>util</artifactId>
+        <artifactId>example-util</artifactId>
         <version>${revison}</version>
       </dependency>
       <dependency>
         <groupId>io.github.linianhui.example.spring</groupId>
-        <artifactId>cms-dto</artifactId>
+        <artifactId>example-cms-dto</artifactId>
         <version>${revison}</version>
       </dependency>
       <dependency>
         <groupId>io.github.linianhui.example.spring</groupId>
-        <artifactId>cms-service</artifactId>
+        <artifactId>example-cms-service</artifactId>
         <version>${revison}</version>
       </dependency>
       <dependency>
         <groupId>io.github.linianhui.example.spring</groupId>
-        <artifactId>cms-rpc-api</artifactId>
+        <artifactId>example-cms-rpc-api</artifactId>
         <version>${revison}</version>
       </dependency>
       <!-- https://mvnrepository.com/artifact/org.mybatis.spring.boot/mybatis-spring-boot-starter -->
