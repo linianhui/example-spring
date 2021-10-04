@@ -13,11 +13,10 @@
 
   <groupId>io.github.linianhui.example.spring</groupId>
   <artifactId>example-parent</artifactId>
-  <version>${revison}</version>
+  <version>1.1</version>
   <packaging>pom</packaging>
 
   <properties>
-    <revison>1.1</revison>
     <java.version>11</java.version>
   </properties>
 
@@ -44,24 +43,24 @@
         <scope>import</scope>
       </dependency>
       <dependency>
-        <groupId>io.github.linianhui.example.spring</groupId>
+        <groupId>${project.groupId}</groupId>
         <artifactId>example-util</artifactId>
-        <version>${revison}</version>
+        <version>${project.version}</version>
       </dependency>
       <dependency>
-        <groupId>io.github.linianhui.example.spring</groupId>
+        <groupId>${project.groupId}</groupId>
         <artifactId>example-cms-dto</artifactId>
-        <version>${revison}</version>
+        <version>${project.version}</version>
       </dependency>
       <dependency>
-        <groupId>io.github.linianhui.example.spring</groupId>
+        <groupId>${project.groupId}</groupId>
         <artifactId>example-cms-service</artifactId>
-        <version>${revison}</version>
+        <version>${project.version}</version>
       </dependency>
       <dependency>
-        <groupId>io.github.linianhui.example.spring</groupId>
+        <groupId>${project.groupId}</groupId>
         <artifactId>example-cms-rpc-api</artifactId>
-        <version>${revison}</version>
+        <version>${project.version}</version>
       </dependency>
       <dependency>
         <!-- https://mvnrepository.com/artifact/org.mybatis.spring.boot/mybatis-spring-boot-starter -->
