@@ -13,11 +13,11 @@
 
   <groupId>io.github.linianhui.example.spring</groupId>
   <artifactId>example-parent</artifactId>
-  <version>${revison}</version>
+  <version>${revision}</version>
   <packaging>pom</packaging>
 
   <properties>
-    <revison>1.1</revison>
+    <revision>1.1</revision>
     <java.version>11</java.version>
   </properties>
 

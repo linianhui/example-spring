@@ -6,7 +6,7 @@
   <parent>
     <groupId>io.github.linianhui.example.spring</groupId>
     <artifactId>example-parent</artifactId>
-    <version>${revison}</version>
+    <version>${revision}</version>
   </parent>
   <artifactId>example-cms-dto</artifactId>
 
