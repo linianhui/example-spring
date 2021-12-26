@@ -17,7 +17,7 @@
 # RUN
 
 ```bash
-./mvnw test package 
+./mvnw clean test package 
 
 docker-compose up -d --build
 ```
