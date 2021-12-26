@@ -42,6 +42,13 @@ services:
     ports:
       - '30080:8080'
 
+  alibaba-sentinel.test:
+    image: ghcr.io/linianhui/alibaba-sentinel:1.8.2
+    restart: always
+    ports:
+      - '30081:80'
+    hostname: alibaba-sentinel
+
   gateway.example:
     build:
       context: example-gateway
