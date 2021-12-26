@@ -2,6 +2,7 @@
 - [CI](#ci)
 - [RUN](#run)
   - [api](#api)
+  - [alibaba-sentinel](#alibaba-sentinel)
   - [zipkin](#zipkin)
   - [gateway](#gateway)
   - [cms](#cms)
@@ -24,6 +25,10 @@ docker-compose up -d --build
 
 ## api
 [API](api.http)
+
+## alibaba-sentinel
+
+alibaba-sentinel: <http://192.168.2.201:30081>
 
 ## zipkin
 
