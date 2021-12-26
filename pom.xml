@@ -106,6 +106,12 @@
         <artifactId>curator-recipes</artifactId>
         <version>5.2.0</version>
       </dependency>
+      <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+      <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-lang3</artifactId>
+        <version>3.12.0</version>
+      </dependency>
     </dependencies>
   </dependencyManagement>
 
@@ -169,27 +175,6 @@
               </configuration>
             </execution>
           </executions>
-        </plugin>
-
-        <plugin>
-          <!-- https://mvnrepository.com/artifact/com.spotify/dockerfile-maven-plugin -->
-          <!-- https://github.com/spotify/dockerfile-maven -->
-          <groupId>com.spotify</groupId>
-          <artifactId>dockerfile-maven-plugin</artifactId>
-          <version>1.4.13</version>
-          <executions>
-            <execution>
-              <id>default</id>
-            </execution>
-          </executions>
-          <configuration>
-            <repository>registry.test/example-${project.artifactId}</repository>
-            <tag>${project.version}</tag>
-            <pullNewerImage>false</pullNewerImage>
-            <buildArgs>
-              <JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
-            </buildArgs>
-          </configuration>
         </plugin>
       </plugins>
     </pluginManagement>

@@ -1,11 +1,10 @@
 <!-- TOC -->
 - [CI](#ci)
-- [准备本地镜像服务](#准备本地镜像服务)
-- [添加namespace](#添加namespace)
-- [部署zipkin](#部署zipkin)
-- [部署service](#部署service)
-  - [部署gateway](#部署gateway)
-  - [部署cms](#部署cms)
+- [RUN](#run)
+  - [api](#api)
+  - [zipkin](#zipkin)
+  - [gateway](#gateway)
+  - [cms](#cms)
 - [Send http2-prior-knowledge request](#send-http2-prior-knowledge-request)
 <!-- TOC -->
 
@@ -15,76 +14,44 @@
 | ------------- | -------- | ------------------------------------------- |
 | GitHub Action | Docker   | [![GitHub-Actions-Img]][GitHub-Actions-Url] |
 
-# 准备本地镜像服务
-
-registry.test: <http://registry.test/v2/_catalog>
-> registry.test 部署方法 : https://github.com/linianhui/docker/tree/master/app
-
-# 添加namespace
+# RUN
 
 ```bash
-kubectl apply --filename k8s/namespace.yml
+./mvnw test package 
+
+docker-compose up -d --build
 ```
 
-# 部署zipkin
+## api
+[API](api.http)
 
-zipkin: <http://127.0.0.1:39411>
+## zipkin
 
-```bash
-kubectl apply --filename k8s/zipkin.yml
+zipkin: <http://192.168.2.201:9411>
 
-kubectl port-forward service/zipkin -n example 39411:9411
-```
+## gateway
 
-# 部署service
+gateway: <http://192.168.2.201:30001>
 
-编译jar
-```bash
-./mvnw package
-```
+gateway-actuator: <http://192.168.2.201:30001/.actuator>
 
-添加供spring-kubenetes访问API-Server的权限。
-```bash
-kubectl apply --filename k8s/rbac.yml
-```
+gateway-doc: <http://192.168.2.201:30001/.doc/index.html>
 
-## 部署gateway
+## cms
 
-gateway: <http://127.0.0.1:30001>
+cms: <http://192.168.2.201:30002>
 
-gateway-actuator: <http://127.0.0.1:30001/.actuator>
+cms-actuator: <http://192.168.2.201:30002/.actuator>
 
-gateway-doc: <http://127.0.0.1:30001/.doc/index.html>
-
-```bash
-./mvnw dockerfile:build dockerfile:push --projects gateway
-
-kubectl apply --filename k8s/gateway.yml
-
-kubectl port-forward service/gateway -n example 30001:80 35005:5005
-```
-
-## 部署cms
-
-cms: <http://127.0.0.1:30002>
-
-cms-actuator: <http://127.0.0.1:30002/.actuator>
-
-cms-doc: <http://127.0.0.1:30002/.doc/index.html>
-
-```bash
-./mvnw dockerfile:build dockerfile:push --projects cms
-
-kubectl apply --filename k8s/cms.yml
-
-kubectl port-forward service/cms -n example 30002:80 35006:5005
-```
-
+cms-doc: <http://192.168.2.201:30002/.doc/index.html>
 
 # Send http2-prior-knowledge request
 
 ```sh
-kubectl run tool --namespace example --generator=run-pod/v1 --image=lnhcode/tool --restart=Never --stdin --tty --command --rm -- sh -c 'curl -s --http2-prior-knowledge http://gateway.example | jq'
+curl -s --http2-prior-knowledge 'http://192.168.2.201:30001'
+
+# or
+docker exec -t example-spring_gateway.example_1 sh -c 'curl -s --http2-prior-knowledge http://gateway.example | jq'
 ```
 
 输出:
@@ -92,10 +59,17 @@ kubectl run tool --namespace example --generator=run-pod/v1 --image=lnhcode/tool
 {
   "gateway": {
     "request": {
-      "protocol": "HTTP/2.0"
+      "class": "io.undertow.servlet.spec.HttpServletRequestImpl",
+      "url": "/",
+      "protocol": "HTTP/2.0",
+      "headers": {
+        "Host": "gateway.example",
+        "accept": "*/*",
+        "user-agent": "curl/7.64.0"
+      }
     },
     "example_properties": {
-      "a": "gateway form k8s configMap application.yml",
+      "a": "a form application.yml",
       "b": "b form application.yml",
       "c": "java hard code",
       "d": "java hard code"
@@ -103,10 +77,22 @@ kubectl run tool --namespace example --generator=run-pod/v1 --image=lnhcode/tool
   },
   "cms": {
     "request": {
-      "protocol": "HTTP/1.1"
+      "class": "com.sun.proxy.$Proxy121",
+      "url": "/",
+      "protocol": "HTTP/2.0",
+      "headers": {
+        "x-b3-parentspanid": "2758599296977bb4",
+        "x-b3-traceid": "d1130797edc07475",
+        "x-b3-spanid": "1f9fd9b90f611280",
+        "x-b3-sampled": "1",
+        "Host": "cms-web.example",
+        "accept-encoding": "gzip",
+        "accept": "*/*",
+        "user-agent": "okhttp/3.14.9"
+      }
     },
     "example_properties": {
-      "a": "cms form k8s configMap application.yml",
+      "a": "a form application.yml",
       "b": "b form application.yml",
       "c": "java hard code",
       "d": "java hard code"

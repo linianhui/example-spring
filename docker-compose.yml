@@ -44,24 +44,27 @@ services:
 
   gateway.example:
     build:
-      context: /example-gateway
+      context: example-gateway
       args:
         JAR_FILE: target/example-gateway-1.1.jar
     ports:
       - '30001:80'
       - '15005:5005'
+    hostname: gateway
 
   cms-web.example:
     build:
-      context: ./example-cms-web/
+      context: example-cms-web
       args:
         JAR_FILE: target/example-cms-web-1.1.jar
+    hostname: cms-web
 
   cms-rpc.example:
     build:
-      context: ./example-cms-rpc
+      context: example-cms-rpc
       args:
         JAR_FILE: target/example-cms-rpc-1.1.jar
+    hostname: cms-rpc
 
 volumes:
   volume_mysql:
