@@ -49,6 +49,17 @@ services:
       - '30081:80'
     hostname: alibaba-sentinel
 
+  hbase.test:
+    build: hbase
+    ports:
+      - '2821:2821'
+      - '16000:16000'
+      - '16010:16010'
+      - '16020:16020'
+      - '16030:16030'
+    hostname: hbase
+    container_name: hbase
+
   gateway.example:
     build:
       context: example-gateway
