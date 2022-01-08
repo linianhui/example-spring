@@ -30,6 +30,7 @@
     <module>example-cms-web</module>
     <module>example-cms-rpc-api</module>
     <module>example-cms-rpc</module>
+    <module>example-cms-api</module>
   </modules>
 
   <dependencyManagement>
