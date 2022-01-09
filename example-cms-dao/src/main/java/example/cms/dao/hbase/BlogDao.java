@@ -9,5 +9,5 @@ public interface BlogDao {
 
     List<BlogPo> getByUserId(String userId);
 
-    void save(BlogPo blog);
+    String save(BlogPo blog);
 }

@@ -48,13 +48,14 @@ public class BlogDaoImpl implements BlogDao {
     }
 
     @Override
-    public void save(final BlogPo blog) {
+    public String save(final BlogPo blog) {
         if (blog==null) {
-            return;
+            return null;
         }
 
         blog.setId(HBaseUtils.buildBlogRowKey(blog.getId(), blog.getCreatedAt()));
         final RowPut rowPut = BlogPoBuilder.toRowPut(blog);
         hbaseTemplate.put(TABLE_NAME, rowPut);
+        return blog.getId();
     }
 }

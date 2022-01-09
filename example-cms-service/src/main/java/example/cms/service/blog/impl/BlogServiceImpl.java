@@ -12,20 +12,20 @@ import org.springframework.stereotype.Service;
 public class BlogServiceImpl implements BlogService {
 
     @Autowired
-    private BlogMapper blogMapper;
+    private BlogMapper blogDao;
 
     @Override
     public BlogPo getById(String id) {
-        return blogMapper.selectById(Integer.parseInt(id));
+        return blogDao.getById(Integer.parseInt(id));
     }
 
     @Override
     public List<BlogPo> getByUserId(String userId) {
-        return blogMapper.selectByUserId(userId);
+        return blogDao.getByUserId(userId);
     }
 
     @Override
     public String save(BlogPo blog) {
-        return String.valueOf(blogMapper.insert(blog));
+        return String.valueOf(blogDao.save(blog));
     }
 }
