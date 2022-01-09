@@ -1,32 +1,51 @@
 package example.starter.hbase.internal;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import com.google.common.collect.Maps;
+import example.starter.hbase.RowResult;
 import org.apache.hadoop.hbase.Cell;
 import org.apache.hadoop.hbase.client.Result;
 import org.apache.hadoop.hbase.util.Bytes;
-import example.starter.hbase.RowResult;
 
 public final class RowResults {
     private RowResults() {
     }
 
-    public static RowResult[] of(Result[] rawResults) {
-        if (rawResults == null) {
+    public static List<RowResult> of(List<Result> rawResults) {
+        if (rawResults==null) {
             return null;
         }
 
-        int length = rawResults.length;
-        RowResult[] result = new RowResult[length];
-        for (int i = 0; i < length; i++) {
-            result[i] = of(rawResults[i]);
+        List<RowResult> result = new ArrayList<>(rawResults.size());
+        for (Result rawResult : rawResults) {
+            RowResult rowResult = of(rawResult);
+            if (rowResult!=null) {
+                result.add(rowResult);
+            }
+        }
+        return result;
+    }
+
+    public static List<RowResult> of(Result[] rawResults) {
+        if (rawResults==null) {
+            return null;
+        }
+
+        List<RowResult> result = new ArrayList<>(rawResults.length);
+        for (Result rawResult : rawResults) {
+            RowResult rowResult = of(rawResult);
+            if (rowResult!=null) {
+                result.add(rowResult);
+            }
         }
         return result;
     }
 
     public static RowResult of(Result rawResult) {
-        if (rawResult == null) {
+        if (rawResult==null) {
             return null;
         }
 

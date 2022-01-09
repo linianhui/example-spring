@@ -2,7 +2,7 @@ package example.cms.dao.mysql.mapper;
 
 import java.util.List;
 
-import example.cms.dao.mysql.po.BlogPo;
+import example.cms.dao.po.BlogPo;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Options;

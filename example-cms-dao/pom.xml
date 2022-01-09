@@ -29,5 +29,9 @@
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
     </dependency>
+    <dependency>
+      <groupId>io.github.linianhui.example.spring</groupId>
+      <artifactId>example-starter-hbase</artifactId>
+    </dependency>
   </dependencies>
 </project>

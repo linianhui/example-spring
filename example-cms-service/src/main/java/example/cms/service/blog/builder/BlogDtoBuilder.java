@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import example.cms.api.dto.BlogDto;
-import example.cms.dao.mysql.po.BlogPo;
+import example.cms.dao.po.BlogPo;
 import example.util.OffsetDateTimes;
 
 public class BlogDtoBuilder {

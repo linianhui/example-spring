@@ -2,19 +2,16 @@ package example.starter.hbase;
 
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
-import example.starter.hbase.internal.RowResults;
-import org.apache.hadoop.conf.Configuration;
-import org.apache.hadoop.hbase.TableName;
-import org.apache.hadoop.hbase.client.Connection;
-import org.apache.hadoop.hbase.client.ConnectionFactory;
-import org.apache.hadoop.hbase.client.Get;
-import org.apache.hadoop.hbase.client.Put;
-import org.apache.hadoop.hbase.client.Result;
-import org.apache.hadoop.hbase.client.Table;
 import example.starter.hbase.internal.Gets;
 import example.starter.hbase.internal.Puts;
+import example.starter.hbase.internal.RowResults;
+import example.starter.hbase.internal.Scans;
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.hbase.TableName;
+import org.apache.hadoop.hbase.client.*;
 
 public class HbaseTemplate {
     private final Configuration configuration;
@@ -41,10 +38,32 @@ public class HbaseTemplate {
         return RowResults.of(result);
     }
 
-    public RowResult[] get(final String tableName, final List<RowGet> rowGets) {
+    public List<RowResult> get(final String tableName, final List<RowGet> rowGets) {
         List<Get> gets = Gets.of(rowGets);
         Result[] results = doGet(tableName, gets);
         return RowResults.of(results);
+    }
+
+    public List<RowResult> scan(final String tableName, final RowScan rowScan) {
+        Scan scan = Scans.of(rowScan);
+        List<Result> results = doScan(tableName, scan);
+        return RowResults.of(results);
+    }
+
+    private void doPut(final String tableName, final Put put) {
+        try (Table table = getTable(tableName)) {
+            table.put(put);
+        } catch (IOException e) {
+            throw new HbaseException("doPut error", e);
+        }
+    }
+
+    private void doPut(final String tableName, final List<Put> puts) {
+        try (Table table = getTable(tableName)) {
+            table.put(puts);
+        } catch (IOException e) {
+            throw new HbaseException("doPut list error", e);
+        }
     }
 
     private Result doGet(final String tableName, final Get get) {
@@ -63,19 +82,16 @@ public class HbaseTemplate {
         }
     }
 
-    private void doPut(final String tableName, final Put put) {
+    private List<Result> doScan(final String tableName, final Scan scan) {
         try (Table table = getTable(tableName)) {
-            table.put(put);
+            ResultScanner scanner = table.getScanner(scan);
+            List<Result> result = new ArrayList<>();
+            for (Result rawResult : scanner) {
+                result.add(rawResult);
+            }
+            return result;
         } catch (IOException e) {
-            throw new HbaseException("doPut error", e);
-        }
-    }
-
-    private void doPut(final String tableName, final List<Put> puts) {
-        try (Table table = getTable(tableName)) {
-            table.put(puts);
-        } catch (IOException e) {
-            throw new HbaseException("doPut list error", e);
+            throw new HbaseException("doGet list error", e);
         }
     }
 

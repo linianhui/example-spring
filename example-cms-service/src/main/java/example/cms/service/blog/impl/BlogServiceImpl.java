@@ -3,7 +3,7 @@ package example.cms.service.blog.impl;
 import java.util.List;
 
 import example.cms.dao.mysql.mapper.BlogMapper;
-import example.cms.dao.mysql.po.BlogPo;
+import example.cms.dao.po.BlogPo;
 import example.cms.service.blog.BlogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
