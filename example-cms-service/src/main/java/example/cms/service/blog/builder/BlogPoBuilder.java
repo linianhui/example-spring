@@ -1,7 +1,7 @@
 package example.cms.service.blog.builder;
 
 import example.cms.api.dto.BlogSaveDto;
-import example.cms.dao.mysql.po.BlogPo;
+import example.cms.dao.po.BlogPo;
 
 public class BlogPoBuilder {
 

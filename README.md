@@ -4,6 +4,7 @@
   - [api](#api)
   - [alibaba-sentinel](#alibaba-sentinel)
   - [zipkin](#zipkin)
+  - [hbase](#hbase)
   - [gateway](#gateway)
   - [cms](#cms)
 - [Send http2-prior-knowledge request](#send-http2-prior-knowledge-request)
@@ -33,6 +34,23 @@ alibaba-sentinel: <http://192.168.2.201:30081>
 ## zipkin
 
 zipkin: <http://192.168.2.201:9411>
+
+## hbase
+
+master:<http://192.168.2.201:16010>
+
+region:<http://192.168.2.201:16030>
+
+```sh
+# 建表
+create 'blog',{NAME=>'cf'},{SPLITS=>['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f']}
+
+# 查看表信息
+describe 'blog'
+
+# 
+describe 'hbase:meta'
+```
 
 ## gateway
 

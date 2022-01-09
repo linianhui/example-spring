@@ -2,7 +2,7 @@ package example.cms.dao.mysql.mapper;
 
 import java.util.List;
 
-import example.cms.dao.mysql.po.BlogPo;
+import example.cms.dao.po.BlogPo;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Options;
@@ -14,12 +14,12 @@ public interface BlogMapper {
     List<BlogPo> selectAll();
 
     @Select("SELECT * FROM blog WHERE id=#{id};")
-    BlogPo selectById(int id);
+    BlogPo getById(int id);
 
     @Select("SELECT * FROM blog WHERE userId=#{userId};")
-    List<BlogPo> selectByUserId(String userId);
+    List<BlogPo> getByUserId(String userId);
 
     @Insert("INSERT INTO blog(userId,title) VALUES(#{userId},#{title});")
     @Options(useGeneratedKeys = true, keyProperty = "id", keyColumn = "id")
-    int insert(BlogPo blog);
+    int save(BlogPo blog);
 }

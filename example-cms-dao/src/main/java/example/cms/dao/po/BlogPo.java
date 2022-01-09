@@ -1,7 +1,9 @@
-package example.cms.dao.mysql.po;
+package example.cms.dao.po;
 
 import java.io.Serializable;
+import java.util.List;
 
+import com.google.common.collect.ImmutableList;
 import lombok.Data;
 
 @Data

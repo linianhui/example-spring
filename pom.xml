@@ -31,6 +31,7 @@
     <module>example-cms-web</module>
     <module>example-cms-rpc</module>
     <module>example-cms-rpc-api</module>
+    <module>example-starter-hbase</module>
   </modules>
 
   <dependencyManagement>
@@ -67,6 +68,11 @@
       <dependency>
         <groupId>${project.groupId}</groupId>
         <artifactId>example-cms-rpc-api</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>${project.groupId}</groupId>
+        <artifactId>example-starter-hbase</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>

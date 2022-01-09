@@ -49,6 +49,16 @@ services:
       - '30081:80'
     hostname: alibaba-sentinel
 
+  hbase.test:
+    build: hbase
+    ports:
+      - '2181:2181'
+      - '16000:16000'
+      - '16010:16010'
+      - '16020:16020'
+      - '16030:16030'
+    hostname: hbase
+
   gateway.example:
     build:
       context: example-gateway
@@ -64,6 +74,8 @@ services:
       context: example-cms-web
       args:
         JAR_FILE: target/example-cms-web-1.1.jar
+    ports:
+      - '30002:80'
     hostname: cms-web
 
   cms-rpc.example:
