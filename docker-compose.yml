@@ -35,6 +35,8 @@ services:
     restart: always
     volumes:
       - volume_zookeeper-1:/data
+    ports:
+      - '30079:8080'
 
   dubbo-admin.test: # username:password root:root
     image: ghcr.io/linianhui/dubbo-admin:0.3.0
