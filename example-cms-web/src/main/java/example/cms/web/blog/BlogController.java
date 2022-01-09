@@ -2,9 +2,11 @@ package example.cms.web.blog;
 
 import java.util.List;
 
-import example.cms.dto.BlogDto;
-import example.cms.service.blog.BlogService;
+import example.cms.api.BlogApi;
+import example.cms.api.dto.BlogDto;
+import example.cms.api.dto.BlogSaveDto;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -12,24 +14,26 @@ import org.springframework.web.bind.annotation.*;
 public class BlogController {
 
     @Autowired
-   private BlogService blogService;
+    private BlogApi blogApi;
 
-    @PostMapping()
-    public int save(
-        @RequestBody BlogDto blog
+    @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public String save(
+        @RequestBody BlogSaveDto blog
     ) {
-        return blogService.save(blog);
+        return blogApi.save(blog);
     }
 
-    @GetMapping(path = "{blogId}")
+    @GetMapping(path = "{blogId}", produces = MediaType.APPLICATION_JSON_VALUE)
     public BlogDto getById(
-        @PathVariable(name = "blogId") int blogId
+        @PathVariable(name = "blogId") String blogId
     ) {
-        return blogService.getById(blogId);
+        return blogApi.getById(blogId);
     }
 
-    @GetMapping
-    public List<BlogDto> listAll() {
-        return blogService.listAll();
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<BlogDto> getByUserId(
+        @RequestParam(name = "userId") String userId
+    ) {
+        return blogApi.getByUserId(userId);
     }
 }

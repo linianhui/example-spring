@@ -2,12 +2,13 @@ package example.cms.service.blog;
 
 import java.util.List;
 
-import example.cms.dto.BlogDto;
+import example.cms.dao.mysql.po.BlogPo;
 
 public interface BlogService {
-    List<BlogDto> listAll();
 
-    BlogDto getById(int id);
+    BlogPo getById(String id);
 
-    int save(BlogDto blog);
+    List<BlogPo> getByUserId(String userId);
+
+    String save(BlogPo blog);
 }

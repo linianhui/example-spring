@@ -3,11 +3,12 @@ package example.cms.api;
 import java.util.List;
 
 import example.cms.api.dto.BlogDto;
+import example.cms.api.dto.BlogSaveDto;
 
 public interface BlogApi {
-    BlogDto get(String blogId);
+    BlogDto getById(String blogId);
 
-    List<BlogDto> get(List<String> blogIds);
+    List<BlogDto> getByUserId(String userId);
 
-    List<BlogDto> getAll();
+    String save(BlogSaveDto blog);
 }

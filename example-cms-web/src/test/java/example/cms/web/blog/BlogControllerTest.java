@@ -3,7 +3,7 @@ package example.cms.web.blog;
 import static org.springframework.restdocs.webtestclient.WebTestClientRestDocumentation.document;
 
 import example.HttpTest;
-import example.cms.dto.BlogDto;
+import example.cms.api.dto.BlogSaveDto;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.MediaType;
 
@@ -11,8 +11,9 @@ import org.springframework.http.MediaType;
 public class BlogControllerTest extends HttpTest {
 
     @Test
-    void test_create_blog_return_200_ok() throws Exception {
-        BlogDto body = new BlogDto();
+    void test_save_return_200_ok() throws Exception {
+        BlogSaveDto body = new BlogSaveDto();
+        body.setUserId("123");
         body.setTitle("test-title");
         http.post()
             .uri("/v1/blog")
@@ -28,8 +29,8 @@ public class BlogControllerTest extends HttpTest {
     }
 
     @Test
-    void test_get_blog_return_200_ok() throws Exception {
-        test_create_blog_return_200_ok();
+    void test_get_by_id_return_200_ok() throws Exception {
+        test_save_return_200_ok();
 
         http.get()
             .uri("/v1/blog/{blogId}", 1)
@@ -45,19 +46,18 @@ public class BlogControllerTest extends HttpTest {
     }
 
     @Test
-    void test_get_blog_list_return_200_ok() throws Exception {
-        test_create_blog_return_200_ok();
-        test_create_blog_return_200_ok();
+    void test_get_by_user_id_return_200_ok() throws Exception {
+        test_save_return_200_ok();
+        test_save_return_200_ok();
 
         http.get()
-            .uri("/v1/blog")
+            .uri("/v1/blog?userId=123")
             .exchange()
             .expectHeader()
             .contentType(MediaType.APPLICATION_JSON)
             .expectStatus()
             .isOk()
             .expectBody()
-            .jsonPath("$.length()").isEqualTo(2)
             .jsonPath("$[0].id").isEqualTo(1)
             .jsonPath("$[0].title").isEqualTo("test-title")
             .jsonPath("$[1].id").isEqualTo(2)

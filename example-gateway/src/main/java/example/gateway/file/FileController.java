@@ -3,7 +3,7 @@ package example.gateway.file;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
-import example.cms.CmsFileClient;
+import example.gateway.remote.cms.CmsHttpFileClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,7 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class FileController {
 
     @Autowired
-    private CmsFileClient fileClient;
+    private CmsHttpFileClient fileClient;
 
     @Autowired
     private HttpServletRequest request;

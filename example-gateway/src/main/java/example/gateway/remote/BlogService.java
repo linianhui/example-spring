@@ -1,10 +1,12 @@
-package example.cms.rpc.api;
+package example.gateway.remote;
 
 import java.util.List;
 
 import example.cms.rpc.api.dto.BlogRpcDto;
 
-public interface BlogRpcClient {
+public interface BlogService {
+    String save(Object blog);
+
     BlogRpcDto getById(String blogId);
 
     List<BlogRpcDto> getByUserId(String userId);
