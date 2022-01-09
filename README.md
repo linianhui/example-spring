@@ -5,6 +5,7 @@
   - [alibaba-sentinel](#alibaba-sentinel)
   - [zipkin](#zipkin)
   - [hbase](#hbase)
+  - [dubbo](#dubbo)
   - [gateway](#gateway)
   - [cms](#cms)
 - [Send http2-prior-knowledge request](#send-http2-prior-knowledge-request)
@@ -51,6 +52,13 @@ describe 'blog'
 # 
 describe 'hbase:meta'
 ```
+
+## dubbo
+
+zookeeper:<http://192.168.2.201:30079/commands>
+
+dubbo-admin:<http://192.168.2.201:30080>
+
 
 ## gateway
 
