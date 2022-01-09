@@ -1,17 +1,19 @@
-package example.cms;
+package example.gateway;
 
-import org.mybatis.spring.annotation.MapperScan;
+import org.apache.dubbo.config.spring.context.annotation.EnableDubbo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
+@EnableDubbo
 @SpringBootApplication
 @ConfigurationPropertiesScan
-@MapperScan(basePackages = "example.cms.dao.mysql.mapper")
-public class WebApplication {
+@EnableFeignClients
+public class GatewayApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(WebApplication.class, args);
+        SpringApplication.run(GatewayApplication.class, args);
     }
 
 }

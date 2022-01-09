@@ -2,9 +2,10 @@ package example.cms.rpc.blog;
 
 import java.util.List;
 
-import example.cms.dto.BlogDto;
+import example.cms.api.BlogApi;
 import example.cms.rpc.api.BlogRpcClient;
-import example.cms.service.blog.BlogService;
+import example.cms.rpc.api.dto.BlogRpcDto;
+import example.cms.rpc.builder.BlogRpcDtoBuilder;
 import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -12,15 +13,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class BlogRpcClientImpl implements BlogRpcClient {
 
     @Autowired
-    private BlogService blogService;
+    private BlogApi blogApi;
 
     @Override
-    public BlogDto getBlogById(int blogId) {
-        return blogService.getById(blogId);
+    public BlogRpcDto getById(String blogId) {
+        return BlogRpcDtoBuilder.build(blogApi.getById(blogId));
     }
 
     @Override
-    public List<BlogDto> getBlogList() {
-        return blogService.listAll();
+    public List<BlogRpcDto> getByUserId(String userId) {
+        return BlogRpcDtoBuilder.build(blogApi.getByUserId(userId));
     }
 }

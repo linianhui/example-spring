@@ -1,6 +1,6 @@
 package example.cms.web.blog;
 
-import example.cms.service.dao.DDLBlogMapper;
+import example.cms.dao.mysql.mapper.DDLBlogMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;

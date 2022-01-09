@@ -25,11 +25,12 @@
     <module>example-util</module>
     <module>example-bean</module>
     <module>example-gateway</module>
-    <module>example-cms-dto</module>
+    <module>example-cms-dao</module>
     <module>example-cms-service</module>
+    <module>example-cms-api</module>
     <module>example-cms-web</module>
-    <module>example-cms-rpc-api</module>
     <module>example-cms-rpc</module>
+    <module>example-cms-rpc-api</module>
   </modules>
 
   <dependencyManagement>
@@ -50,12 +51,17 @@
       </dependency>
       <dependency>
         <groupId>${project.groupId}</groupId>
-        <artifactId>example-cms-dto</artifactId>
+        <artifactId>example-cms-dao</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>${project.groupId}</groupId>
         <artifactId>example-cms-service</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>${project.groupId}</groupId>
+        <artifactId>example-cms-api</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>

@@ -4,7 +4,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
-import example.cms.CmsHomeClient;
+import example.gateway.remote.cms.CmsHttpHomeClient;
 import example.util.HttpServletRequestUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,7 +19,7 @@ public class HomeController {
     private ExampleProperties exampleProperties;
 
     @Autowired
-    private CmsHomeClient homeClient;
+    private CmsHttpHomeClient homeClient;
 
     @Autowired
     private HttpServletRequest request;

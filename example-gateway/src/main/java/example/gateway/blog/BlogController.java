@@ -2,10 +2,8 @@ package example.gateway.blog;
 
 import java.util.List;
 
-import example.cms.BlogClient;
-import example.cms.dto.BlogDto;
-import example.cms.rpc.api.BlogRpcClient;
-import org.apache.dubbo.config.annotation.DubboReference;
+import example.cms.rpc.api.dto.BlogRpcDto;
+import example.gateway.remote.BlogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,23 +12,22 @@ import org.springframework.web.bind.annotation.*;
 public class BlogController {
 
     @Autowired
-    private BlogClient blogClient;
-
-    @DubboReference
-    private BlogRpcClient blogRpcClient;
+    private BlogService blogService;
 
     @PostMapping()
-    public int createBlog(@RequestBody Object blog) {
-        return blogClient.createBlog(blog);
+    public String createBlog(@RequestBody Object blog) {
+        return blogService.save(blog);
     }
 
     @GetMapping(path = "{blogId}")
-    public Object getBlogById(@PathVariable(name = "blogId") int blogId) {
-        return blogRpcClient.getBlogById(blogId);
+    public BlogRpcDto getBlogById(@PathVariable(name = "blogId") String blogId) {
+        return blogService.getById(blogId);
     }
 
     @GetMapping
-    public List<BlogDto> getBlogList() {
-        return blogRpcClient.getBlogList();
+    public List<BlogRpcDto> getBlogList(
+        @RequestParam(name = "userId") String userId
+    ) {
+        return blogService.getByUserId(userId);
     }
 }

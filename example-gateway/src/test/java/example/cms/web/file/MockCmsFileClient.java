@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import example.cms.CmsFileClient;
+import example.gateway.remote.cms.CmsHttpFileClient;
 import org.mockito.invocation.InvocationOnMock;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -60,8 +60,8 @@ public class MockCmsFileClient {
 
     @Bean
     @Primary
-    public CmsFileClient cmsFileClient() {
-        CmsFileClient client = mock(CmsFileClient.class);
+    public CmsHttpFileClient cmsFileClient() {
+        CmsHttpFileClient client = mock(CmsHttpFileClient.class);
 
         when(client.uploadFile(anyString(), any()))
             .thenAnswer(MockCmsFileClient::buildUploadFileResult);
