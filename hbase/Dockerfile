@@ -1,5 +1,7 @@
 FROM ghcr.io/linianhui/hbase:2.3.7
 
+#COPY hbase-site.xml /hbase/conf/hbase-site.xml
+
 # 2821  zookeeper client port
 EXPOSE 2181
 

@@ -43,6 +43,8 @@ master:<http://192.168.2.201:16010>
 region:<http://192.168.2.201:16030>
 
 ```sh
+./hbase shell
+
 # 建表
 create 'blog',{NAME=>'cf'},{SPLITS=>['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f']}
 
@@ -56,6 +58,11 @@ describe 'hbase:meta'
 ## dubbo
 
 zookeeper:<http://192.168.2.201:30079/commands>
+
+```sh
+./zkCli.sh
+ls /
+```
 
 dubbo-admin:<http://192.168.2.201:30080>
 
