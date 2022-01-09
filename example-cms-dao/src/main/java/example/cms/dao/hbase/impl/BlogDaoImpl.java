@@ -15,7 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Slf4j
-@Component
+//@Component
 public class BlogDaoImpl implements BlogDao {
 
     @Autowired
