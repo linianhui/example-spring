@@ -1,7 +1,7 @@
-FROM ghcr.io/linianhui/hbase:2.3.6
+FROM ghcr.io/linianhui/hbase:2.3.7
 
 # 2821  zookeeper client port
-EXPOSE 2821
+EXPOSE 2181
 
 # 16000 hbase master port
 EXPOSE 16000

@@ -6,5 +6,6 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @Data
 @ConfigurationProperties(prefix = "spring.data.hbase")
 public class HbaseProperties {
+    private boolean enabled;
     private String quorum;
 }

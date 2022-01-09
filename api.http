@@ -1,4 +1,4 @@
-@HOST = http://192.168.2.201:30001
+@HOST = http://192.168.2.201:30002
 
 
 ### 本地Docker镜像仓库
@@ -21,11 +21,12 @@ POST {{HOST}}/v1/blog
 Content-Type: application/json
 
 {
+  "userId": "123",
   "title": "title-{{$guid}}"
 }
 
 ### Blog-获取列表
-GET {{HOST}}/v1/blog
+GET {{HOST}}/v1/blog?userId=123
 
 ### Blog-获取ById
 GET {{HOST}}/v1/blog/1

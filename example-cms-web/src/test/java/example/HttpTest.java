@@ -5,12 +5,14 @@ import static org.springframework.restdocs.webtestclient.WebTestClientRestDocume
 
 import java.time.Duration;
 
+import example.starter.hbase.HbaseTemplate;
 import example.util.AssertUtil;
 import example.util.ResourceUtil;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.restdocs.RestDocumentationContextProvider;
 import org.springframework.restdocs.RestDocumentationExtension;
 import org.springframework.test.context.ActiveProfiles;
@@ -24,6 +26,9 @@ public abstract class HttpTest {
 
     @Autowired
     protected WebTestClient http;
+
+    @MockBean
+    protected HbaseTemplate hbaseTemplate;
 
     @BeforeEach
     void beforeEach(

@@ -53,7 +53,7 @@ public class BlogDaoImpl implements BlogDao {
             return null;
         }
 
-        blog.setId(HBaseUtils.buildBlogRowKey(blog.getId(), blog.getCreatedAt()));
+        blog.setId(HBaseUtils.buildBlogRowKey(blog.getUserId(), blog.getCreatedAt()));
         final RowPut rowPut = BlogPoBuilder.toRowPut(blog);
         hbaseTemplate.put(TABLE_NAME, rowPut);
         return blog.getId();
