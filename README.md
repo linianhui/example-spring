@@ -1,11 +1,14 @@
 <!-- TOC -->
 - [CI](#ci)
 - [RUN](#run)
-  - [api](#api)
+- [INFRA](#infra)
   - [alibaba-sentinel](#alibaba-sentinel)
-  - [zipkin](#zipkin)
-  - [hbase](#hbase)
   - [dubbo](#dubbo)
+  - [hbase](#hbase)
+  - [mysql](#mysql)
+  - [zipkin](#zipkin)
+  - [zookeeper](#zookeeper)
+- [API](#api)
   - [gateway](#gateway)
   - [cms](#cms)
 - [Send http2-prior-knowledge request](#send-http2-prior-knowledge-request)
@@ -20,27 +23,41 @@
 # RUN
 
 ```bash
+# 创建网络
+docker network create example-spring-network
+
+# 启动基础设施服务
+docker-compose -f infra/docker-compose.yml up -d --build
+
+# 编译项目
 ./mvnw clean test package 
 
+# 启动业务服务
 docker-compose up -d --build
 ```
 
-## api
-[API](api.http)
+# INFRA
+
 
 ## alibaba-sentinel
 
-alibaba-sentinel: <http://192.168.2.201:30081>
+alibaba-sentinel : <http://192.168.2.201:10088>
 
-## zipkin
+username : sentinel  
+password : sentinel
 
-zipkin: <http://192.168.2.201:9411>
+## dubbo
+
+dubbo-admin : <http://192.168.2.201:18080>
+
+username : root  
+password : 1234
 
 ## hbase
 
-master:<http://192.168.2.201:16010>
+master : <http://192.168.2.201:16010>
 
-region:<http://192.168.2.201:16030>
+region : <http://192.168.2.201:16030>
 
 ```sh
 ./hbase shell
@@ -55,17 +72,29 @@ describe 'blog'
 describe 'hbase:meta'
 ```
 
-## dubbo
+## mysql
 
-zookeeper:<http://192.168.2.201:30079/commands>
+mysql-admin : <http://192.168.2.201:13306>
+
+server : mysql.infra  
+username : root  
+password : 1234
+
+## zipkin
+
+zipkin: <http://192.168.2.201:19411>
+
+## zookeeper
+
+zookeeper : <http://192.168.2.201:28080/commands>
 
 ```sh
 ./zkCli.sh
 ls /
 ```
 
-dubbo-admin:<http://192.168.2.201:30080>
-
+# API
+[API](api.http)
 
 ## gateway
 

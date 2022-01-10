@@ -1,18 +1,5 @@
 @HOST = http://192.168.2.201:30001
 
-
-### 本地Docker镜像仓库
-GET http://registry.test/v2/_catalog
-
-
-### 本地Docker镜像仓库-example-gateway
-GET http://registry.test/v2/example-gateway/tags/list
-
-
-### 本地Docker镜像仓库-example-cms
-GET http://registry.test/v2/example-cms/tags/list
-
-
 ### 首页
 GET {{HOST}}
 

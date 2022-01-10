@@ -1,0 +1,74 @@
+version: "3.8"
+
+
+networks:
+  default:
+    external:
+      name: example-spring-network
+
+
+volumes:
+  volume_mysql:
+  volume_mysql-admin:
+  volume_zookeeper-1:
+
+
+services:
+
+  alibaba-sentinel.infra:
+    build: alibaba-sentinel
+    hostname: alibaba-sentinel.infra
+    restart: always
+    ports:
+      - '10088:80'
+
+  dubbo-admin.infra:
+    build: dubbo-admin
+    hostname: alibaba-sentinel.infra
+    restart: always
+    ports:
+      - '18080:8080'
+
+  hbase.infra:
+    build: hbase
+    hostname: hbase.infra
+    restart: always
+    ports:
+      - '2181:2181'
+      - '16010:16010'
+      - '16030:16030'
+
+  mysql.infra:
+    build: mysql
+    hostname: mysql.infra
+    restart: always
+    volumes:
+      - volume_mysql:/var/lib/mysql
+
+  mysql-admin.infra:
+    build: mysql-admin
+    hostname: mysql-admin.infra
+    restart: always
+    ports:
+      - '13306:80'
+    volumes:
+      - volume_mysql-admin:/sessions
+
+  zipkin.infra:
+    build: zipkin
+    hostname: zipkin.infra
+    restart: always
+    ports:
+      - '19411:9411'
+
+  zookeeper-1.infra:
+    build: zookeeper
+    hostname: zookeeper-1.infra
+    restart: always
+    ports:
+      - '28080:8080'
+    volumes:
+      - volume_zookeeper-1:/data
+
+
+
