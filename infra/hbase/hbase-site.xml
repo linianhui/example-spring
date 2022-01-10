@@ -16,6 +16,6 @@
   </property>
   <property>
     <name>hbase.zookeeper.quorum</name>
-    <value>zookeeper-1.test</value>
+    <value>zookeeper-1.infra</value>
   </property>
 </configuration>

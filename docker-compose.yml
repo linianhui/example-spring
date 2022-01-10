@@ -1,93 +1,34 @@
-version: "3"
+version: "3.8"
+
+networks:
+  default:
+    external:
+      name: example-spring-network
 
 services:
-
-  zipkin.test:
-    image: openzipkin/zipkin
-    ports:
-      - '9411:9411'
-
-  mysql.test:
-    image: mysql:8.0.25
-    restart: always
-    environment:
-      - MYSQL_ALLOW_EMPTY_PASSWORD=no
-      - MYSQL_ROOT_PASSWORD=1234
-      - MYSQL_DATABASE=test
-    volumes:
-      - volume_mysql:/var/lib/mysql
-#
-#  admin.mysql.test:
-#    image: 'phpmyadmin/phpmyadmin:5.1'
-#    restart: always
-#    environment:
-#      - PMA_HOST=mysql.test
-#      - PMA_PORT=3306
-#      - MYSQL_ROOT_PASSWORD=1234
-#      - PMA_ARBITRARY=1
-#    ports:
-#      - '13306:80'
-#    volumes:
-#      - volume_admin-mysql:/sessions
-
-  zookeeper-1.test:
-    build: zookeeper
-    restart: always
-    volumes:
-      - volume_zookeeper-1:/data
-    ports:
-      - '30079:8080'
-
-  dubbo-admin.test: # username:password root:root
-    image: ghcr.io/linianhui/dubbo-admin:0.3.0
-    restart: always
-    ports:
-      - '30080:8080'
-
-  alibaba-sentinel.test:
-    image: ghcr.io/linianhui/alibaba-sentinel:1.8.2
-    restart: always
-    ports:
-      - '30081:80'
-    hostname: alibaba-sentinel
-
-  hbase.test:
-    build: hbase
-    ports:
-      - '2181:2181'
-      - '16000:16000'
-      - '16010:16010'
-      - '16020:16020'
-      - '16030:16030'
-    hostname: hbase
 
   gateway.example:
     build:
       context: example-gateway
       args:
         JAR_FILE: target/example-gateway-1.1.jar
+    hostname: gateway.example
     ports:
       - '30001:80'
       - '15005:5005'
-    hostname: gateway
 
   cms-web.example:
     build:
       context: example-cms-web
       args:
         JAR_FILE: target/example-cms-web-1.1.jar
+    hostname: cms-web.example
     ports:
       - '30002:80'
-    hostname: cms-web
 
   cms-rpc.example:
     build:
       context: example-cms-rpc
       args:
         JAR_FILE: target/example-cms-rpc-1.1.jar
-    hostname: cms-rpc
-
-volumes:
-  volume_mysql:
-  volume_admin-mysql:
-  volume_zookeeper-1:
+    hostname: cms-rpc.example

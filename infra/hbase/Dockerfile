@@ -1,3 +1,5 @@
+# https://github.com/linianhui/docker/tree/main/image/hbase/2.3.7
+
 FROM ghcr.io/linianhui/hbase:2.3.7
 
 #COPY hbase-site.xml /hbase/conf/hbase-site.xml
