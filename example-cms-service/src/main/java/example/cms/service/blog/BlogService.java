@@ -8,6 +8,8 @@ public interface BlogService {
 
     BlogPo getById(String id);
 
+    List<BlogPo> getByIds(List<String> ids);
+
     List<BlogPo> getByUserId(String userId);
 
     String save(BlogPo blog);

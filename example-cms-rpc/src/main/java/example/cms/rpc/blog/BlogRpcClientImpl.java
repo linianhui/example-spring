@@ -21,6 +21,11 @@ public class BlogRpcClientImpl implements BlogRpcClient {
     }
 
     @Override
+    public List<BlogRpcDto> getByIds(List<String> blogIdList) {
+        return BlogRpcDtoBuilder.build(blogApi.getByIds(blogIdList));
+    }
+
+    @Override
     public List<BlogRpcDto> getByUserId(String userId) {
         return BlogRpcDtoBuilder.build(blogApi.getByUserId(userId));
     }
