@@ -21,7 +21,7 @@ GET {{HOST}}/v1/blog
 GET {{HOST}}/v1/blog/202c-123-9223370394630978193
 
 ### Blog-批量获取
-GET {{HOST}}/v1/blog
+GET {{HOST}}/v1/blog/batch
 ?blogId=202c-123-9223370394630978193
 &blogId=202c-123-9223370394634241458
 
