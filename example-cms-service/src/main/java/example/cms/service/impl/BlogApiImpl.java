@@ -25,6 +25,11 @@ public class BlogApiImpl implements BlogApi {
     }
 
     @Override
+    public List<BlogDto> getByIds(List<String> blogIdList) {
+        return BlogDtoBuilder.build(blogService.getByIds(blogIdList));
+    }
+
+    @Override
     public List<BlogDto> getByUserId(String userId) {
         return BlogDtoBuilder.build(blogService.getByUserId(userId));
     }

@@ -14,10 +14,16 @@ Content-Type: application/json
 }
 
 ### Blog-获取列表
-GET {{HOST}}/v1/blog?userId=123
+GET {{HOST}}/v1/blog
+?userId=123
 
 ### Blog-获取ById
 GET {{HOST}}/v1/blog/202c-123-9223370394630978193
+
+### Blog-批量获取
+GET {{HOST}}/v1/blog
+?blogId=202c-123-9223370394630978193
+&blogId=202c-123-9223370394634241458
 
 
 ### 上传文件 + JSON

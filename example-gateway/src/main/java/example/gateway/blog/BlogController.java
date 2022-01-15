@@ -23,7 +23,7 @@ public class BlogController {
     @GetMapping(path = "{blogId}")
     public ResponseEntity<BlogRpcDto> getBlogById(@PathVariable(name = "blogId") String blogId) {
         BlogRpcDto result = blogService.getById(blogId);
-        if (result==null) {
+        if (result == null) {
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok(result);
@@ -34,5 +34,12 @@ public class BlogController {
         @RequestParam(name = "userId") String userId
     ) {
         return blogService.getByUserId(userId);
+    }
+
+    @GetMapping(path = "batch")
+    public List<BlogRpcDto> getBlogList(
+        @RequestParam(name = "blogId") List<String> blogIds
+    ) {
+        return blogService.getByIds(blogIds);
     }
 }

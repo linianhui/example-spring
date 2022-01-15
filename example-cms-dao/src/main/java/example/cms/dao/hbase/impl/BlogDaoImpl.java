@@ -10,6 +10,7 @@ import example.cms.dao.hbase.utils.HBaseUtils;
 import example.cms.dao.po.BlogPo;
 import example.starter.hbase.*;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -29,6 +30,16 @@ public class BlogDaoImpl implements BlogDao {
         final RowGet rowGet = RowGet.of(rowKey, FAMILY_BYTES, COLUMN_QUALIFIERS);
         final RowResult rowResult = hbaseTemplate.get(TABLE_NAME, rowGet);
         return BlogPoBuilder.from(rowResult);
+    }
+
+    @Override
+    public List<BlogPo> getByIds(List<String> rowKeyList) {
+        if (CollectionUtils.isEmpty(rowKeyList)) {
+            return null;
+        }
+        final List<RowGet> rowGetList = RowGet.of(rowKeyList, FAMILY_BYTES, COLUMN_QUALIFIERS);
+        final List<RowResult> rowResultList = hbaseTemplate.get(TABLE_NAME, rowGetList);
+        return BlogPoBuilder.from(rowResultList);
     }
 
     @Override

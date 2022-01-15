@@ -9,5 +9,7 @@ public interface BlogService {
 
     BlogRpcDto getById(String blogId);
 
+    List<BlogRpcDto> getByIds(List<String> blogIdList);
+
     List<BlogRpcDto> getByUserId(String userId);
 }

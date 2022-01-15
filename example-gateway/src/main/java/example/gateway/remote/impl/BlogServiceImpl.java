@@ -37,6 +37,12 @@ public class BlogServiceImpl implements BlogService {
     }
 
     @Override
+    @SentinelResource(value = "blog_getByIds")
+    public List<BlogRpcDto> getByIds(List<String> blogIdList) {
+        return blogRpcClient.getByIds(blogIdList);
+    }
+
+    @Override
     @SentinelResource(value = "blog_getByUserId")
     public List<BlogRpcDto> getByUserId(String userId) {
         return blogRpcClient.getByUserId(userId);
