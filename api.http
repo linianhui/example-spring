@@ -16,7 +16,7 @@ Content-Type: application/json
 GET {{HOST}}/v1/blog?userId=123
 
 ### Blog-获取ById
-GET {{HOST}}/v1/blog/1
+GET {{HOST}}/v1/blog/202c-123-9223372036854775800
 
 
 ### 上传文件 + JSON

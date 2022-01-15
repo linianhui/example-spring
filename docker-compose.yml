@@ -24,7 +24,7 @@ services:
         JAR_FILE: target/example-cms-web-1.1.jar
     hostname: cms-web.example
     ports:
-      - '30002:80'
+      - '15006:5005'
 
   cms-rpc.example:
     build:
@@ -32,3 +32,5 @@ services:
       args:
         JAR_FILE: target/example-cms-rpc-1.1.jar
     hostname: cms-rpc.example
+    ports:
+          - '15007:5005'
