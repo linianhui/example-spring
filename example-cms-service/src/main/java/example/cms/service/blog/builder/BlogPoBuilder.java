@@ -13,6 +13,9 @@ public class BlogPoBuilder {
         result.setUserId(input.getUserId());
         result.setTitle(input.getTitle());
         result.setContent(input.getContent());
+        long now = System.currentTimeMillis();
+        result.setCreatedAt(now);
+        result.setUpdatedAt(now);
         return result;
     }
 }

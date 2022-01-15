@@ -2,6 +2,7 @@ package example.cms.service.blog.impl;
 
 import java.util.List;
 
+import example.cms.dao.hbase.BlogDao;
 import example.cms.dao.mysql.mapper.BlogMapper;
 import example.cms.dao.po.BlogPo;
 import example.cms.service.blog.BlogService;
@@ -12,11 +13,11 @@ import org.springframework.stereotype.Service;
 public class BlogServiceImpl implements BlogService {
 
     @Autowired
-    private BlogMapper blogDao;
+    private BlogDao blogDao;
 
     @Override
     public BlogPo getById(String id) {
-        return blogDao.getById(Integer.parseInt(id));
+        return blogDao.getById(id);
     }
 
     @Override

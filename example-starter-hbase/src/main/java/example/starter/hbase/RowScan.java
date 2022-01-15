@@ -8,7 +8,7 @@ import lombok.Data;
 public class RowScan {
     private byte[] startKey;
     private byte[] endKey;
-    private byte[] filterPrefix;
+    private byte[] prefixFilter;
     private byte[] family;
     private Collection<byte[]> qualifiers;
 }

@@ -19,7 +19,7 @@ public class BlogPoBuilder {
         result.setId(rowResult.getKey());
         String[] keySplit = HBaseUtils.split(rowResult.getKey());
         result.setUserId(keySplit[1]);
-        result.setCreatedAt(Long.parseLong(keySplit[2]));
+        result.setCreatedAt(Long.MAX_VALUE - Long.parseLong(keySplit[2]));
         result.setTitle(rowResult.getString(COLUMN_TITLE, null));
         result.setContent(rowResult.getString(COLUMN_CONTENT, null));
         result.setUpdatedAt(rowResult.getLong(COLUMN_UPDATED_AT, 0));

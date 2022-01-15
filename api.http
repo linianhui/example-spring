@@ -9,14 +9,15 @@ Content-Type: application/json
 
 {
   "userId": "123",
-  "title": "title-{{$guid}}"
+  "title": "title-{{$guid}}",
+  "content": "content-{{$guid}}"
 }
 
 ### Blog-获取列表
 GET {{HOST}}/v1/blog?userId=123
 
 ### Blog-获取ById
-GET {{HOST}}/v1/blog/1
+GET {{HOST}}/v1/blog/202c-123-9223370394630978193
 
 
 ### 上传文件 + JSON

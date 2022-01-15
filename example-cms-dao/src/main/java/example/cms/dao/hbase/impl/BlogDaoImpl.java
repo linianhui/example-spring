@@ -15,7 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Slf4j
-//@Component
+@Component
 public class BlogDaoImpl implements BlogDao {
 
     @Autowired
@@ -38,7 +38,7 @@ public class BlogDaoImpl implements BlogDao {
         }
         final RowScan rowScan = new RowScan();
         String prefix = HBaseUtils.md5Prefix(userId);
-        rowScan.setFilterPrefix(HBaseUtils.buildBlogRowKeyOfFilter(prefix, userId).getBytes());
+        rowScan.setPrefixFilter(HBaseUtils.buildBlogRowKeyOfFilter(prefix, userId).getBytes());
         rowScan.setStartKey(HBaseUtils.buildBlogRowKeyOfStart(prefix, userId).getBytes());
         rowScan.setEndKey(HBaseUtils.buildBlogRowKeyOfEnd(prefix, userId).getBytes());
         rowScan.setFamily(FAMILY_BYTES);

@@ -1,6 +1,7 @@
 package example.cms.rpc.builder;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 import example.cms.api.dto.BlogDto;
@@ -8,6 +9,9 @@ import example.cms.rpc.api.dto.BlogRpcDto;
 
 public final class BlogRpcDtoBuilder {
     public static BlogRpcDto build(BlogDto input) {
+        if (input==null){
+            return null;
+        }
         BlogRpcDto result = new BlogRpcDto();
         result.setId(input.getId());
         result.setUserId(input.getUserId());
@@ -21,6 +25,7 @@ public final class BlogRpcDtoBuilder {
     public static List<BlogRpcDto> build(List<BlogDto> blogDtos) {
         return blogDtos.stream()
             .map(BlogRpcDtoBuilder::build)
+            .filter(Objects::nonNull)
             .collect(Collectors.toList());
     }
 }
