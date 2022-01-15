@@ -2,7 +2,7 @@ package example.starter.hbase.internal;
 
 import example.starter.hbase.RowScan;
 import org.apache.hadoop.hbase.client.Scan;
-import org.apache.hadoop.hbase.filter.ColumnPrefixFilter;
+import org.apache.hadoop.hbase.filter.PrefixFilter;
 
 public final class Scans {
     private Scans() {
@@ -12,7 +12,9 @@ public final class Scans {
         final Scan result = new Scan();
         result.withStartRow(rowScan.getStartKey(), true);
         result.withStopRow(rowScan.getEndKey(), true);
-        result.setFilter(new ColumnPrefixFilter(rowScan.getFilterPrefix()));
+        if (rowScan.getPrefixFilter()!=null) {
+            result.setFilter(new PrefixFilter(rowScan.getPrefixFilter()));
+        }
         final byte[] family = rowScan.getFamily();
         for (byte[] qualifier : rowScan.getQualifiers()) {
             result.addColumn(family, qualifier);

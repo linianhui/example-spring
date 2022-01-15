@@ -12,19 +12,19 @@ public class HBaseUtils {
     public static String buildBlogRowKey(String userId, long createdAt) {
         String prefix = md5Prefix(userId);
         String suffix = suffix(createdAt);
-        return buildRowKey(userId, prefix, suffix);
+        return buildRowKey(prefix, userId, suffix);
     }
 
     public static String buildBlogRowKeyOfFilter(String prefix, String userId) {
-        return buildRowKey(DELIMITER, prefix, userId);
+        return buildRowKey(prefix, userId);
     }
 
     public static String buildBlogRowKeyOfStart(String prefix, String userId) {
-        return buildRowKey(DELIMITER, prefix, userId, DELIMITER);
+        return buildRowKey(prefix, userId) + DELIMITER;
     }
 
     public static String buildBlogRowKeyOfEnd(String prefix, String userId) {
-        return buildRowKey(DELIMITER, prefix, userId, END_DELIMITER);
+        return buildRowKey(prefix, userId) + END_DELIMITER;
     }
 
     private static String buildRowKey(String... args) {
@@ -32,7 +32,7 @@ public class HBaseUtils {
     }
 
     public static String[] split(String rowKey) {
-        return StringUtils.split(DELIMITER);
+        return StringUtils.split(rowKey, DELIMITER);
     }
 
     public static String md5Prefix(String value) {

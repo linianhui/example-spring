@@ -19,7 +19,7 @@ public class BlogServiceImpl implements BlogService {
     @Autowired
     private BlogHttpClient blogHttpClient;
 
-    @DubboReference
+    @DubboReference(check = false, timeout = 500)
     private BlogRpcClient blogRpcClient;
 
     @Override

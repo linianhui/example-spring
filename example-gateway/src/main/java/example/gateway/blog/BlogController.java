@@ -5,6 +5,7 @@ import java.util.List;
 import example.cms.rpc.api.dto.BlogRpcDto;
 import example.gateway.remote.BlogService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -20,8 +21,12 @@ public class BlogController {
     }
 
     @GetMapping(path = "{blogId}")
-    public BlogRpcDto getBlogById(@PathVariable(name = "blogId") String blogId) {
-        return blogService.getById(blogId);
+    public ResponseEntity<BlogRpcDto> getBlogById(@PathVariable(name = "blogId") String blogId) {
+        BlogRpcDto result = blogService.getById(blogId);
+        if (result==null) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(result);
     }
 
     @GetMapping
