@@ -9,7 +9,8 @@ Content-Type: application/json
 
 {
   "userId": "123",
-  "title": "title-{{$guid}}"
+  "title": "title-{{$guid}}",
+  "content": "content-{{$guid}}"
 }
 
 ### Blog-获取列表
