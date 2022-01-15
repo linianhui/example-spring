@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "editorconfig.editorconfig",
+    "humao.rest-client",
+    "ms-azuretools.vscode-docker",
+    "redhat.vscode-yaml",
+    "redhat.vscode-xml"
+  ]
+}
