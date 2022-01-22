@@ -1,9 +1,9 @@
-package example.starter.hbase;
+package example.starter.hbase.admin;
 
 import java.util.Collection;
 import java.util.List;
 
-import example.starter.hbase.dto.*;
+import example.starter.hbase.admin.dto.*;
 
 public interface HbaseAdmin {
     ConfigDto getClientConfig();

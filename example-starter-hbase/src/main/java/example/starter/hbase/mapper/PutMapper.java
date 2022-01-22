@@ -1,16 +1,16 @@
-package example.starter.hbase.internal;
+package example.starter.hbase.mapper;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.hadoop.hbase.client.Put;
 import example.starter.hbase.RowPut;
+import org.apache.hadoop.hbase.client.Put;
 
-public final class Puts {
-    private Puts() {
+public final class PutMapper {
+    private PutMapper() {
     }
 
-    public static Put of(RowPut rowPut) {
+    public static Put map(RowPut rowPut) {
         final Put result = new Put(rowPut.getKey());
         final byte[] family = rowPut.getFamily();
 
@@ -21,10 +21,10 @@ public final class Puts {
         return result;
     }
 
-    public static List<Put> of(List<RowPut> rowPuts) {
+    public static List<Put> map(List<RowPut> rowPuts) {
         final List<Put> result = new ArrayList<>(rowPuts.size());
         for (RowPut rowPut : rowPuts) {
-            result.add(of(rowPut));
+            result.add(map(rowPut));
         }
         return result;
     }

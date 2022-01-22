@@ -5,8 +5,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import example.starter.hbase.impl.HbaseAdminImpl;
-import example.starter.hbase.internal.*;
+import example.starter.hbase.admin.HbaseAdmin;
+import example.starter.hbase.admin.impl.HbaseAdminImpl;
+import example.starter.hbase.mapper.*;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hbase.TableName;
 import org.apache.hadoop.hbase.client.*;
@@ -19,31 +20,31 @@ public class HbaseTemplate {
     }
 
     public void put(final String tableName, final RowPut rowPut) {
-        Put put = Puts.of(rowPut);
+        Put put = PutMapper.map(rowPut);
         doPut(tableName, put);
     }
 
     public void put(final String tableName, final List<RowPut> rowPuts) {
-        List<Put> puts = Puts.of(rowPuts);
+        List<Put> puts = PutMapper.map(rowPuts);
         doPut(tableName, puts);
     }
 
     public RowResult get(final String tableName, final RowGet rowGet) {
-        Get get = Gets.of(rowGet);
+        Get get = GetMapper.map(rowGet);
         Result result = doGet(tableName, get);
-        return RowResults.of(result);
+        return ResultMapper.map(result);
     }
 
     public List<RowResult> get(final String tableName, final List<RowGet> rowGets) {
-        List<Get> gets = Gets.of(rowGets);
+        List<Get> gets = GetMapper.map(rowGets);
         Result[] results = doGet(tableName, gets);
-        return RowResults.of(results);
+        return ResultMapper.map(results);
     }
 
     public List<RowResult> scan(final String tableName, final RowScan rowScan) {
-        Scan scan = Scans.of(rowScan);
+        Scan scan = ScanMapper.map(rowScan);
         List<Result> results = doScan(tableName, scan);
-        return RowResults.of(results);
+        return ResultMapper.map(results);
     }
 
     public HbaseAdmin getAdmin() {

@@ -1,8 +1,9 @@
-package example.starter.hbase.mapper;
+package example.starter.hbase.admin.mapper;
 
 import java.util.List;
 
-import example.starter.hbase.dto.TableNameDto;
+import example.starter.hbase.admin.dto.TableNameDto;
+import example.starter.hbase.mapper.ListMapper;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.hadoop.hbase.TableName;
 

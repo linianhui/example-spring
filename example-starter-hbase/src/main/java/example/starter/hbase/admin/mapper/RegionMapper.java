@@ -1,9 +1,10 @@
-package example.starter.hbase.mapper;
+package example.starter.hbase.admin.mapper;
 
 import java.util.Collection;
 import java.util.List;
 
-import example.starter.hbase.dto.RegionDto;
+import example.starter.hbase.admin.dto.RegionDto;
+import example.starter.hbase.mapper.ListMapper;
 import org.apache.hadoop.hbase.client.RegionInfo;
 import org.apache.hadoop.hbase.util.Bytes;
 

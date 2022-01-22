@@ -1,10 +1,10 @@
-package example.starter.hbase.mapper;
+package example.starter.hbase.admin.mapper;
 
 import java.util.Map;
 
 import com.google.common.collect.ImmutableSortedMap;
 import com.google.common.collect.Maps;
-import example.starter.hbase.dto.ConfigDto;
+import example.starter.hbase.admin.dto.ConfigDto;
 import org.apache.hadoop.conf.Configuration;
 
 public final class ConfigMapper {

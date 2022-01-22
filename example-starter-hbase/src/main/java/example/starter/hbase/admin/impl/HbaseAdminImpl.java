@@ -1,12 +1,12 @@
-package example.starter.hbase.impl;
+package example.starter.hbase.admin.impl;
 
 import java.io.IOException;
 import java.util.*;
 
-import example.starter.hbase.HbaseAdmin;
 import example.starter.hbase.HbaseException;
-import example.starter.hbase.dto.*;
-import example.starter.hbase.mapper.*;
+import example.starter.hbase.admin.HbaseAdmin;
+import example.starter.hbase.admin.dto.*;
+import example.starter.hbase.admin.mapper.*;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hbase.HRegionLocation;
 import org.apache.hadoop.hbase.client.Admin;

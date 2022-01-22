@@ -1,4 +1,4 @@
-package example.starter.hbase.dto;
+package example.starter.hbase.admin.dto;
 
 import java.io.Serializable;
 

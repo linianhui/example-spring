@@ -2,11 +2,11 @@ package example.cms.web.hbase;
 
 import java.util.*;
 
-import example.starter.hbase.HbaseAdmin;
 import example.starter.hbase.HbaseTemplate;
-import example.starter.hbase.dto.*;
-import example.starter.hbase.mapper.ServerNameMapper;
-import example.starter.hbase.mapper.TableNameMapper;
+import example.starter.hbase.admin.HbaseAdmin;
+import example.starter.hbase.admin.dto.*;
+import example.starter.hbase.admin.mapper.ServerNameMapper;
+import example.starter.hbase.admin.mapper.TableNameMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

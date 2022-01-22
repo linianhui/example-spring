@@ -1,4 +1,4 @@
-package example.starter.hbase.internal;
+package example.starter.hbase.mapper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,11 +6,11 @@ import java.util.List;
 import example.starter.hbase.RowGet;
 import org.apache.hadoop.hbase.client.Get;
 
-public final class Gets {
-    private Gets() {
+public final class GetMapper {
+    private GetMapper() {
     }
 
-    public static Get of(final RowGet rowGet) {
+    public static Get map(final RowGet rowGet) {
         final Get result = new Get(rowGet.getKey());
         final byte[] family = rowGet.getFamily();
 
@@ -21,10 +21,10 @@ public final class Gets {
         return result;
     }
 
-    public static List<Get> of(List<RowGet> rowGets) {
+    public static List<Get> map(List<RowGet> rowGets) {
         final List<Get> result = new ArrayList<>(rowGets.size());
         for (RowGet rowGet : rowGets) {
-            result.add(of(rowGet));
+            result.add(map(rowGet));
         }
         return result;
     }
