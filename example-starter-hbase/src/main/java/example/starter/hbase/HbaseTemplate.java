@@ -5,20 +5,16 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import example.starter.hbase.internal.Gets;
-import example.starter.hbase.internal.Puts;
-import example.starter.hbase.internal.RowResults;
-import example.starter.hbase.internal.Scans;
+import example.starter.hbase.impl.HbaseAdminImpl;
+import example.starter.hbase.internal.*;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hbase.TableName;
 import org.apache.hadoop.hbase.client.*;
 
 public class HbaseTemplate {
-    private final Configuration configuration;
     private final Connection connection;
 
     public HbaseTemplate(Configuration configuration) throws IOException {
-        this.configuration = configuration;
         this.connection = ConnectionFactory.createConnection(configuration);
     }
 
@@ -48,6 +44,14 @@ public class HbaseTemplate {
         Scan scan = Scans.of(rowScan);
         List<Result> results = doScan(tableName, scan);
         return RowResults.of(results);
+    }
+
+    public HbaseAdmin getAdmin() {
+        try {
+            return new HbaseAdminImpl(connection.getAdmin());
+        } catch (IOException e) {
+            throw new HbaseException("getAdmin error", e);
+        }
     }
 
     private void doPut(final String tableName, final Put put) {
@@ -95,7 +99,11 @@ public class HbaseTemplate {
         }
     }
 
-    private Table getTable(final String tableName) throws IOException {
-        return connection.getTable(TableName.valueOf(tableName));
+    private Table getTable(final String tableName) {
+        try {
+            return connection.getTable(TableName.valueOf(tableName));
+        } catch (IOException e) {
+            throw new HbaseException("getTable error", e);
+        }
     }
 }
