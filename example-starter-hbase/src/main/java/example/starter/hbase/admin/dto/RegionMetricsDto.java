@@ -1,6 +1,7 @@
 package example.starter.hbase.admin.dto;
 
 import java.io.Serializable;
+import java.time.OffsetDateTime;
 import java.util.Map;
 
 import lombok.Data;
@@ -41,7 +42,7 @@ public class RegionMetricsDto implements Serializable {
     private long blocksTotalWeight;
 
     private String compactionState;
-    private long lastMajorCompactionTimestamp;
+    private OffsetDateTime lastMajorCompactionTimestamp;
     private long completedSequenceId;
     private Map<String, Long> storeSequenceIds;
 }

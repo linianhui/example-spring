@@ -1,6 +1,7 @@
 package example.starter.hbase.admin.dto;
 
 import java.io.Serializable;
+import java.time.OffsetDateTime;
 import java.util.Map;
 import java.util.Set;
 
@@ -16,8 +17,8 @@ public class ServerMetricsDto implements Serializable {
     private int versionNumber;
     private String version;
 
-    private long reportTimestamp;
-    private long lastReportTimestamp;
+    private OffsetDateTime reportTimestamp;
+    private OffsetDateTime lastReportTimestamp;
 
     private long requestCountPerSecond;
     private long requestCount;

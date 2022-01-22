@@ -5,6 +5,7 @@ import java.util.Map;
 import example.starter.hbase.admin.dto.ServerMetricsDto;
 import example.starter.hbase.admin.dto.ServerNameDto;
 import example.starter.hbase.mapper.MapMapper;
+import example.starter.hbase.mapper.TimeMapper;
 import org.apache.hadoop.hbase.ServerMetrics;
 import org.apache.hadoop.hbase.ServerName;
 
@@ -28,8 +29,8 @@ public final class ServerMetricsMapper {
         result.setRequestCountPerSecond(source.getRequestCountPerSecond());
         result.setRequestCount(source.getRequestCount());
         result.setInfoServerPort(source.getInfoServerPort());
-        result.setReportTimestamp(source.getReportTimestamp());
-        result.setLastReportTimestamp(source.getLastReportTimestamp());
+        result.setReportTimestamp(TimeMapper.map(source.getReportTimestamp()));
+        result.setLastReportTimestamp(TimeMapper.map(source.getLastReportTimestamp()));
         result.setCoprocessorNames(source.getCoprocessorNames());
         result.setRegionMetrics(RegionMetricsMapper.map(source.getRegionMetrics()));
         result.setUserMetrics(UserMetricsMapper.map(source.getUserMetrics()));
