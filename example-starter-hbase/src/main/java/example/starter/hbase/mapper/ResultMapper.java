@@ -1,6 +1,7 @@
 package example.starter.hbase.mapper;
 
-import java.util.*;
+import java.util.List;
+import java.util.Map;
 
 import com.google.common.collect.Maps;
 import example.starter.hbase.RowResult;
@@ -13,49 +14,27 @@ public final class ResultMapper {
     private ResultMapper() {
     }
 
-    public static List<RowResult> map(List<Result> rawResults) {
-        if (rawResults == null) {
-            return null;
-        }
-
-        List<RowResult> result = new ArrayList<>(rawResults.size());
-        for (Result rawResult : rawResults) {
-            RowResult rowResult = map(rawResult);
-            if (rowResult != null) {
-                result.add(rowResult);
-            }
-        }
-        return result;
+    public static List<RowResult> map(List<Result> source) {
+        return ListMapper.map(source, ResultMapper::map, null);
     }
 
-    public static List<RowResult> map(Result[] rawResults) {
-        if (rawResults == null) {
-            return null;
-        }
-
-        List<RowResult> result = new ArrayList<>(rawResults.length);
-        for (Result rawResult : rawResults) {
-            RowResult rowResult = map(rawResult);
-            if (rowResult != null) {
-                result.add(rowResult);
-            }
-        }
-        return result;
+    public static List<RowResult> map(Result[] source) {
+        return ListMapper.map(source, ResultMapper::map, null);
     }
 
-    public static RowResult map(Result rawResult) {
-        if (rawResult == null || rawResult.isEmpty()) {
+    public static RowResult map(Result source) {
+        if (source == null || source.isEmpty()) {
             return null;
         }
 
         final RowResult rowResult = new RowResult();
-        final String key = Bytes.toString(rawResult.getRow());
+        final String key = Bytes.toString(source.getRow());
         if (key == null) {
             return null;
         }
         rowResult.setKey(key);
 
-        Cell[] rawCells = rawResult.rawCells();
+        Cell[] rawCells = source.rawCells();
         Map<String, byte[]> cellMap = Maps.newHashMapWithExpectedSize(rawCells.length);
         for (Cell rawCell : rawCells) {
             String qualifier = getQualifier(rawCell);

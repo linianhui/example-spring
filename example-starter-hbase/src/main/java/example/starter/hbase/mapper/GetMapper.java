@@ -1,6 +1,5 @@
 package example.starter.hbase.mapper;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import example.starter.hbase.RowGet;
@@ -10,22 +9,18 @@ public final class GetMapper {
     private GetMapper() {
     }
 
-    public static Get map(final RowGet rowGet) {
-        final Get result = new Get(rowGet.getKey());
-        final byte[] family = rowGet.getFamily();
+    public static Get map(final RowGet source) {
+        final Get result = new Get(source.getKey());
+        final byte[] family = source.getFamily();
 
-        for (byte[] qualifier : rowGet.getQualifiers()) {
+        for (byte[] qualifier : source.getQualifiers()) {
             result.addColumn(family, qualifier);
         }
 
         return result;
     }
 
-    public static List<Get> map(List<RowGet> rowGets) {
-        final List<Get> result = new ArrayList<>(rowGets.size());
-        for (RowGet rowGet : rowGets) {
-            result.add(map(rowGet));
-        }
-        return result;
+    public static List<Get> map(List<RowGet> source) {
+       return ListMapper.map(source, GetMapper::map, null);
     }
 }
