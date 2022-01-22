@@ -2,11 +2,14 @@ package example.cms.web.hbase;
 
 import java.util.*;
 
+import com.google.common.collect.Maps;
 import example.starter.hbase.HbaseTemplate;
 import example.starter.hbase.admin.HbaseAdmin;
-import example.starter.hbase.admin.dto.*;
+import example.starter.hbase.admin.dto.ServerNameDto;
+import example.starter.hbase.admin.dto.TableNameDto;
 import example.starter.hbase.admin.mapper.ServerNameMapper;
 import example.starter.hbase.admin.mapper.TableNameMapper;
+import org.apache.commons.collections.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,6 +27,8 @@ public class HbaseController {
         result.put("masterServerName", getMasterServerName());
         result.put("regionServerNames", getRegionServerNames());
         result.put("tableNames", getTableNames());
+        result.put("tableRegions", getTableRegionsOfAll());
+        result.put("serverRegions", getServerRegionsOfAll());
         return result;
     }
 
@@ -47,64 +52,87 @@ public class HbaseController {
         return getHbaseAdmin().getTableNames();
     }
 
+    @GetMapping(path = "table/all")
+    public Object getTableOfAll() {
+        HbaseAdmin hbaseAdmin = getHbaseAdmin();
+        List<TableNameDto> tableNames = hbaseAdmin.getTableNames();
+        if (CollectionUtils.isEmpty(tableNames)) {
+            return new HashMap<>();
+        }
+
+        Map<String, Object> result = Maps.newTreeMap();
+        for (TableNameDto tableNameDto : tableNames) {
+            String tableName = tableNameDto.toString();
+            result.put(tableName, getTable(tableName));
+        }
+        return result;
+    }
+
     @GetMapping(path = "table/{tableName}")
     public Object getTable(
-        @PathVariable(name = "tableName", required = false) String tableName
+        @PathVariable(name = "tableName") String tableName
     ) {
+        return getHbaseAdmin().getTableDescriptor(TableNameMapper.map(tableName));
+    }
+
+    @GetMapping(path = "table-region/all")
+    public Object getTableRegionsOfAll() {
         HbaseAdmin hbaseAdmin = getHbaseAdmin();
-        if (tableName != null) {
-            return hbaseAdmin.getTableDescriptor(TableNameMapper.map(tableName));
-        } else {
-            List<TableNameDto> tableNameDtoList = hbaseAdmin.getTableNames();
-            List<TableDescriptorDto> result = new ArrayList<>();
-            for (TableNameDto tableNameDto : tableNameDtoList) {
-                result.add(hbaseAdmin.getTableDescriptor(tableNameDto));
-            }
-            return result;
+        List<TableNameDto> tableNames = hbaseAdmin.getTableNames();
+        if (CollectionUtils.isEmpty(tableNames)) {
+            return new HashMap<>();
         }
+
+        Map<String, Object> result = Maps.newTreeMap();
+        for (TableNameDto tableNameDto : tableNames) {
+            String tableName = tableNameDto.toString();
+            result.put(tableName, getTableRegions(tableName));
+        }
+        return result;
     }
 
     @GetMapping(path = "table-region/{tableName}")
     public Object getTableRegions(
-        @PathVariable(name = "tableName", required = false) String tableName
+        @PathVariable(name = "tableName") String tableName
     ) {
-        HbaseAdmin hbaseAdmin = getHbaseAdmin();
-        if (tableName != null) {
-            return hbaseAdmin.getRegions(TableNameMapper.map(tableName));
-        } else {
-            List<TableNameDto> tableNameDtoList = hbaseAdmin.getTableNames();
-            List<RegionDto> result = new ArrayList<>();
-            for (TableNameDto tableNameDto : tableNameDtoList) {
-                result.addAll(hbaseAdmin.getRegions(tableNameDto));
-            }
-            return result;
-        }
+        return getHbaseAdmin().getRegions(TableNameMapper.map(tableName));
     }
 
-    @GetMapping(path = "server-region")
-    public Object getServerRegions(
-        @RequestParam(name = "serverName", required = false) String serverName
-    ) {
+    @GetMapping(path = "server-region/all")
+    public Object getServerRegionsOfAll() {
         HbaseAdmin hbaseAdmin = getHbaseAdmin();
-        if (serverName != null) {
-            return hbaseAdmin.getRegions(ServerNameMapper.map(serverName));
-        } else {
-            List<ServerNameDto> serverNameDtoList = hbaseAdmin.getRegionServerNames();
-            List<RegionDto> result = new ArrayList<>();
-            for (ServerNameDto serverNameDto : serverNameDtoList) {
-                result.addAll(hbaseAdmin.getRegions(serverNameDto));
-            }
-            return result;
+        List<ServerNameDto> serverNames = hbaseAdmin.getRegionServerNames();
+        if (CollectionUtils.isEmpty(serverNames)) {
+            return new HashMap<>();
         }
+
+        Map<String, Object> result = Maps.newTreeMap();
+        for (ServerNameDto serverNameDto : serverNames) {
+            String serverName = serverNameDto.toString();
+            result.put(serverName, getServerRegions(serverName));
+        }
+        return result;
+    }
+
+    @GetMapping(path = "server-region/{serverName}")
+    public Object getServerRegions(
+        @PathVariable(name = "serverName") String serverName
+    ) {
+        return getHbaseAdmin().getRegions(ServerNameMapper.map(serverName));
     }
 
     @GetMapping(path = "row-region/{tableName}")
-    public Object getTableRegions(
-        @PathVariable(name = "tableName", required = true) String tableName,
-        @RequestParam(name = "row", required = true) List<String> rows
+    public Object getRowRegions(
+        @PathVariable(name = "tableName") String tableName,
+        @RequestParam(name = "row") List<String> rows
     ) {
         HbaseAdmin hbaseAdmin = getHbaseAdmin();
-        return hbaseAdmin.getRegionLocations(TableNameMapper.map(tableName), rows);
+        TableNameDto tableNameDto = TableNameMapper.map(tableName);
+        Map<String, Object> result = new TreeMap<>();
+        for (String row : rows) {
+            result.put(row, hbaseAdmin.getRegionLocation(tableNameDto, row));
+        }
+        return result;
     }
 
     private HbaseAdmin getHbaseAdmin() {

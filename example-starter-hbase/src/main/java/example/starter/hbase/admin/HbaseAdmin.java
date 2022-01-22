@@ -1,6 +1,5 @@
 package example.starter.hbase.admin;
 
-import java.util.Collection;
 import java.util.List;
 
 import example.starter.hbase.admin.dto.*;
@@ -20,5 +19,5 @@ public interface HbaseAdmin {
 
     TableDescriptorDto getTableDescriptor(TableNameDto tableName);
 
-    List<RegionLocationDto> getRegionLocations(TableNameDto tableName, Collection<String> rows);
+    RegionLocationDto getRegionLocation(TableNameDto tableName, String row);
 }

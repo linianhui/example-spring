@@ -14,6 +14,11 @@ public class ServerNameDto implements Comparable<ServerNameDto>, Serializable {
     private long startCode;
 
     @Override
+    public String toString() {
+        return hostName + ":" + port;
+    }
+
+    @Override
     public int compareTo(ServerNameDto o) {
         if (o == null) {
             return -1;

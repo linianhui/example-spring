@@ -1,7 +1,7 @@
 package example.starter.hbase.admin.impl;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.List;
 
 import example.starter.hbase.HbaseException;
 import example.starter.hbase.admin.HbaseAdmin;
@@ -81,22 +81,13 @@ public class HbaseAdminImpl implements HbaseAdmin {
     }
 
     @Override
-    public List<RegionLocationDto> getRegionLocations(TableNameDto tableName, Collection<String> rows) {
+    public RegionLocationDto getRegionLocation(TableNameDto tableName, String row) {
         try {
             RegionLocator locator = admin.getConnection().getRegionLocator(TableNameMapper.map(tableName));
-            List<RegionLocationDto> result = new ArrayList<>(rows.size());
-            for (String row : rows) {
-                if (row != null) {
-                    HRegionLocation hRegionLocation = locator.getRegionLocation(Bytes.toBytes(row));
-                    RegionLocationDto dto = RegionLocationMapper.map(hRegionLocation);
-                    if (dto != null) {
-                        result.add(dto);
-                    }
-                }
-            }
-            return result;
+            HRegionLocation hRegionLocation = locator.getRegionLocation(Bytes.toBytes(row));
+            return RegionLocationMapper.map(hRegionLocation);
         } catch (IOException e) {
-            throw new HbaseException("getRegionLocations error", e);
+            throw new HbaseException("getRegionLocation error", e);
         }
     }
 }

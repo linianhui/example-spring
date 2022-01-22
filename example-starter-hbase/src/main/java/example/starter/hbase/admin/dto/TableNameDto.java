@@ -14,6 +14,14 @@ public class TableNameDto implements Comparable<TableNameDto>, Serializable {
     private boolean systemTable;
 
     @Override
+    public String toString() {
+        if (namespace != null) {
+            return namespace + ":" + name;
+        }
+        return name;
+    }
+
+    @Override
     public int compareTo(TableNameDto o) {
         if (o == null) {
             return -1;

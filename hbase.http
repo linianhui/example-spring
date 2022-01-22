@@ -16,24 +16,24 @@ GET {{HOST}}/v1/hbase/region-server-name
 GET {{HOST}}/v1/hbase/table-name
 
 ###
-GET {{HOST}}/v1/hbase/table
+GET {{HOST}}/v1/hbase/table/all
 
 ###
 GET {{HOST}}/v1/hbase/table/blog
 
 ###
-GET {{HOST}}/v1/hbase/table-region
+GET {{HOST}}/v1/hbase/table-region/all
 
 ###
 GET {{HOST}}/v1/hbase/table-region/blog
 
 ###
+GET {{HOST}}/v1/hbase/server-region/all
+
+###
+GET {{HOST}}/v1/hbase/server-region/hbase.infra:16020
+
+###
 GET {{HOST}}/v1/hbase/row-region/blog
 ?row=202c-123-9223370394634241458
 &row=202c-123-9223370394630978193
-
-###
-GET {{HOST}}/v1/hbase/server-region
-
-###
-GET {{HOST}}/v1/hbase/server-region?serverName=hbase.infra:16020
