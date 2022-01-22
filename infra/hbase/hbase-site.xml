@@ -18,4 +18,13 @@
     <name>hbase.zookeeper.quorum</name>
     <value>zookeeper-1.infra</value>
   </property>
+  <property>
+    <name>hbase.regionserver.slowlog.systable.enabled</name>
+    <value>true</value>
+  </property>
+  <property>
+    <name>hbase.regionserver.slowlog.buffer.enabled</name>
+    <value>true</value>
+  </property>
+
 </configuration>
