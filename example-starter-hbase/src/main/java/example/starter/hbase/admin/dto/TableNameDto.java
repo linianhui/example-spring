@@ -3,9 +3,11 @@ package example.starter.hbase.admin.dto;
 import java.io.Serializable;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.apache.commons.lang3.StringUtils;
 
 @Data
+@EqualsAndHashCode(of = {"namespace", "name"})
 public class TableNameDto implements Comparable<TableNameDto>, Serializable {
     private static final long serialVersionUID = -1168173193801041233L;
 

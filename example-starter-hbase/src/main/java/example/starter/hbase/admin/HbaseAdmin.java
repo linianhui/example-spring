@@ -7,6 +7,8 @@ import example.starter.hbase.admin.dto.*;
 public interface HbaseAdmin {
     ConfigDto getClientConfig();
 
+    ClusterMetricsDto getClusterMetrics();
+
     ServerNameDto getMasterServerName();
 
     List<ServerNameDto> getRegionServerNames();
