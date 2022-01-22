@@ -1,0 +1,39 @@
+@HOST = http://192.168.2.201:30002
+
+###
+GET {{HOST}}/v1/hbase
+
+###
+GET {{HOST}}/v1/hbase/client-config
+
+###
+GET {{HOST}}/v1/hbase/master-name
+
+###
+GET {{HOST}}/v1/hbase/region-server-name
+
+###
+GET {{HOST}}/v1/hbase/table-name
+
+###
+GET {{HOST}}/v1/hbase/table/all
+
+###
+GET {{HOST}}/v1/hbase/table/blog
+
+###
+GET {{HOST}}/v1/hbase/table-region/all
+
+###
+GET {{HOST}}/v1/hbase/table-region/blog
+
+###
+GET {{HOST}}/v1/hbase/server-region/all
+
+###
+GET {{HOST}}/v1/hbase/server-region/hbase.infra:16020
+
+###
+GET {{HOST}}/v1/hbase/row-region/blog
+?row=202c-123-9223370394634241458
+&row=202c-123-9223370394630978193
