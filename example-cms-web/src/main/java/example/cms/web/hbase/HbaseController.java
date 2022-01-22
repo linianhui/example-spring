@@ -29,6 +29,7 @@ public class HbaseController {
         result.put("tableNames", getTableNames());
         result.put("tableRegions", getTableRegionsOfAll());
         result.put("serverRegions", getServerRegionsOfAll());
+        result.put("tables", getTableOfAll());
         return result;
     }
 
