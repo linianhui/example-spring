@@ -4,6 +4,7 @@ import java.util.Map;
 
 import example.starter.hbase.admin.dto.RegionMetricsDto;
 import example.starter.hbase.mapper.MapMapper;
+import example.starter.hbase.mapper.TimeMapper;
 import org.apache.hadoop.hbase.RegionMetrics;
 import org.apache.hadoop.hbase.util.Bytes;
 
@@ -43,7 +44,7 @@ public final class RegionMetricsMapper {
         result.setFilteredReadRequestCount(source.getFilteredReadRequestCount());
         result.setCompletedSequenceId(source.getCompletedSequenceId());
         result.setDataLocality(source.getDataLocality());
-        result.setLastMajorCompactionTimestamp(source.getLastMajorCompactionTimestamp());
+        result.setLastMajorCompactionTimestamp(TimeMapper.map(source.getLastMajorCompactionTimestamp()));
         result.setDataLocalityForSsd(source.getDataLocalityForSsd());
         result.setBlocksLocalWeight(source.getBlocksLocalWeight());
         result.setBlocksLocalWithSsdWeight(source.getBlocksLocalWithSsdWeight());
