@@ -22,7 +22,7 @@ public final class TableNameMapper {
 
         TableNameDto result = new TableNameDto();
         result.setNamespace(source.getNamespaceAsString());
-        result.setName(source.getNameAsString());
+        result.setName(source.getQualifierAsString());
         result.setSystemTable(source.isSystemTable());
         return result;
     }
@@ -41,8 +41,8 @@ public final class TableNameMapper {
         }
         TableNameDto result = new TableNameDto();
 
-        if (StringUtils.contains(source, ":")) {
-            String[] split = source.split(":");
+        if (StringUtils.contains(source, TableName.NAMESPACE_DELIM)) {
+            String[] split = StringUtils.split(source, TableName.NAMESPACE_DELIM);
             result.setNamespace(split[0]);
             result.setName(split[1]);
             return result;

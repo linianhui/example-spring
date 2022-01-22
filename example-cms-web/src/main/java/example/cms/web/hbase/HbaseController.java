@@ -1,6 +1,9 @@
 package example.cms.web.hbase;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 import com.google.common.collect.Maps;
 import example.starter.hbase.HbaseTemplate;
@@ -30,6 +33,7 @@ public class HbaseController {
         result.put("tableRegions", getTableRegionsOfAll());
         result.put("serverRegions", getServerRegionsOfAll());
         result.put("tables", getTableOfAll());
+        result.put("clusterMetrics", getClusterMetrics());
         return result;
     }
 
@@ -51,6 +55,11 @@ public class HbaseController {
     @GetMapping(path = "table-name")
     public Object getTableNames() {
         return getHbaseAdmin().getTableNames();
+    }
+
+    @GetMapping(path = "cluster-metrics")
+    public Object getClusterMetrics() {
+        return getHbaseAdmin().getClusterMetrics();
     }
 
     @GetMapping(path = "table/all")

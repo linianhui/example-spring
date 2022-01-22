@@ -3,8 +3,10 @@ package example.starter.hbase.admin.dto;
 import java.io.Serializable;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 @Data
+@EqualsAndHashCode(of = {"tableName"})
 public class TableDescriptorDto implements Comparable<TableDescriptorDto>, Serializable {
     private static final long serialVersionUID = -1168173193801041233L;
 

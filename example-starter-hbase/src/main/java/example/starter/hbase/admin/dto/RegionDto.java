@@ -3,9 +3,11 @@ package example.starter.hbase.admin.dto;
 import java.io.Serializable;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.apache.commons.lang3.StringUtils;
 
 @Data
+@EqualsAndHashCode(of = {"name"})
 public class RegionDto implements Comparable<RegionDto>, Serializable {
     private static final long serialVersionUID = 1697578294963263054L;
 

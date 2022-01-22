@@ -16,6 +16,9 @@ GET {{HOST}}/v1/hbase/region-server-name
 GET {{HOST}}/v1/hbase/table-name
 
 ###
+GET {{HOST}}/v1/hbase/cluster-metrics
+
+###
 GET {{HOST}}/v1/hbase/table/all
 
 ###

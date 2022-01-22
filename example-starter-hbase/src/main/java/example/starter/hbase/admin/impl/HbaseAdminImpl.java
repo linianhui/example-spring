@@ -27,6 +27,15 @@ public class HbaseAdminImpl implements HbaseAdmin {
     }
 
     @Override
+    public ClusterMetricsDto getClusterMetrics() {
+        try {
+            return ClusterMetricsMapper.map(admin.getClusterMetrics());
+        } catch (IOException e) {
+            throw new HbaseException("getClusterMetrics error", e);
+        }
+    }
+
+    @Override
     public ServerNameDto getMasterServerName() {
         try {
             return ServerNameMapper.map(admin.getMaster());
