@@ -61,7 +61,7 @@ region : <http://192.168.2.201:16030>
 
 ```sh
 
-docker exec -it infra_hbase.infra_1 bash
+docker exec -it infra-hbase bash
 
 ./bin/hbase shell
 
@@ -82,7 +82,7 @@ describe 'hbase:meta'
 
 mysql-admin : <http://192.168.2.201:13306>
 
-server : mysql.infra  
+server : mysql.test  
 username : root  
 password : 1234
 
@@ -124,7 +124,7 @@ cms-doc: <http://192.168.2.201:30002/.doc/index.html>
 curl -s --http2-prior-knowledge 'http://192.168.2.201:30001'
 
 # or
-docker exec -t example-spring_gateway.example_1 sh -c 'curl -s --http2-prior-knowledge http://gateway.example | jq'
+docker exec -t example-spring-gateway sh -c 'curl -s --http2-prior-knowledge http://gateway.example | jq'
 ```
 
 输出:

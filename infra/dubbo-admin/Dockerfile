@@ -1,4 +1,4 @@
-# https://github.com/linianhui/docker/tree/main/image/dubbo-admin/0.3.0
+# https://github.com/linianhui/docker/tree/main/image/dubbo-admin/0.4.0
 
 FROM ghcr.io/linianhui/dubbo-admin:0.3.0
 

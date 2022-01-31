@@ -15,55 +15,62 @@ volumes:
 
 services:
 
-  alibaba-sentinel.infra:
+  alibaba-sentinel.test:
     build: alibaba-sentinel
-    hostname: alibaba-sentinel.infra
+    hostname: alibaba-sentinel.test
+    container_name: infra-alibaba-sentinel
     restart: always
     ports:
       - '10088:80'
 
-  dubbo-admin.infra:
+  dubbo-admin.test:
     build: dubbo-admin
-    hostname: alibaba-sentinel.infra
+    hostname: dubbo-admin.test
+    container_name: infra-dubbo-admin
     restart: always
     ports:
       - '18080:8080'
 
-  hbase.infra:
+  hbase.test:
     build: hbase
-    hostname: hbase.infra
+    hostname: hbase.test
+    container_name: infra-hbase
     restart: always
     ports:
       - '2181:2181'
       - '16010:16010'
       - '16030:16030'
 
-  mysql.infra:
+  mysql.test:
     build: mysql
-    hostname: mysql.infra
+    hostname: mysql.test
+    container_name: infra-mysql
     restart: always
     volumes:
       - volume_mysql:/var/lib/mysql
 
-  mysql-admin.infra:
+  mysql-admin.test:
     build: mysql-admin
-    hostname: mysql-admin.infra
+    hostname: mysql-admin.test
+    container_name: infra-mysql-admin
     restart: always
     ports:
       - '13306:80'
     volumes:
       - volume_mysql-admin:/sessions
 
-  zipkin.infra:
+  zipkin.test:
     build: zipkin
-    hostname: zipkin.infra
+    hostname: zipkin.test
+    container_name: infra-zipkin
     restart: always
     ports:
       - '19411:9411'
 
-  zookeeper-1.infra:
+  zookeeper-1.test:
     build: zookeeper
-    hostname: zookeeper-1.infra
+    hostname: zookeeper-1.test
+    container_name: infra-zookeeper-1
     restart: always
     ports:
       - '28080:8080'

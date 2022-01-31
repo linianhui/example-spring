@@ -1,5 +1,5 @@
 # https://hub.docker.com/r/lnhcode/openjdk/tags
-FROM ghcr.io/linianhui/openjdk:11.0.10
+FROM ghcr.io/linianhui/openjdk:11.0.13
 
 ARG JAR_FILE
 

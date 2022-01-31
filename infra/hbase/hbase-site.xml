@@ -16,7 +16,7 @@
   </property>
   <property>
     <name>hbase.zookeeper.quorum</name>
-    <value>zookeeper-1.infra</value>
+    <value>zookeeper-1.test</value>
   </property>
   <property>
     <name>hbase.regionserver.slowlog.systable.enabled</name>
