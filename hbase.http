@@ -34,7 +34,7 @@ GET {{HOST}}/v1/hbase/table-region/blog
 GET {{HOST}}/v1/hbase/server-region/all
 
 ###
-GET {{HOST}}/v1/hbase/server-region/hbase.infra:16020
+GET {{HOST}}/v1/hbase/server-region/hbase.test:16020
 
 ###
 GET {{HOST}}/v1/hbase/row-region/blog
