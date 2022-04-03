@@ -1,8 +1,6 @@
 package example.gateway.config;
 
-
-import java.util.List;
-
+import com.google.common.collect.Lists;
 import okhttp3.OkHttpClient;
 import okhttp3.Protocol;
 import org.springframework.stereotype.Component;
@@ -14,7 +12,7 @@ public class H2PriorKnowledgeOkHttpClient {
 
     public H2PriorKnowledgeOkHttpClient(final OkHttpClient okHttpClient) {
         this.okHttpClient = okHttpClient.newBuilder()
-            .protocols(List.of(Protocol.H2_PRIOR_KNOWLEDGE))
+            .protocols(Lists.newArrayList(Protocol.H2_PRIOR_KNOWLEDGE))
             .build();
     }
 
