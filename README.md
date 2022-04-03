@@ -46,6 +46,10 @@ alibaba-sentinel : <http://192.168.2.201:10088>
 username : sentinel  
 password : sentinel
 
+```
+ab -c 10 -n 20000 -k http://192.168.2.201:30001/v1/blog?userId=123
+```
+
 ## dubbo
 
 dubbo-admin : <http://192.168.2.201:18080>
