@@ -1,8 +1,6 @@
-# https://github.com/linianhui/docker/tree/main/image/hbase/2.3.7
+# https://github.com/linianhui/docker/tree/main/image/hbase/2.4.11
 
-FROM ghcr.io/linianhui/hbase:2.3.7
-
-COPY hbase-site.xml /hbase/conf/hbase-site.xml
+FROM ghcr.io/linianhui/hbase:2.4.11
 
 # 2821  zookeeper client port
 EXPOSE 2181
