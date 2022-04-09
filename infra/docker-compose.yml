@@ -10,7 +10,10 @@ networks:
 volumes:
   volume_mysql:
   volume_mysql-admin:
-  volume_zookeeper-1:
+  volume_zookeeper-1_data:
+  volume_zookeeper-1_datalog:
+  volume_zookeeper-1_logs:
+  volume_hbase:
 
 
 services:
@@ -40,6 +43,8 @@ services:
       - '2181:2181'
       - '16010:16010'
       - '16030:16030'
+    volumes:
+      - volume_hbase:/data
 
   mysql.test:
     build: mysql
@@ -75,7 +80,9 @@ services:
     ports:
       - '28080:8080'
     volumes:
-      - volume_zookeeper-1:/data
+      - volume_zookeeper-1_data:/data
+      - volume_zookeeper-1_datalog:/datalog
+      - volume_zookeeper-1_logs:/logs
 
 
 
