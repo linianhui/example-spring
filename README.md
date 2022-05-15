@@ -70,7 +70,7 @@ docker exec -it infra-hbase bash
 ./bin/hbase shell
 
 # 建表
-create 'blog',{NAME=>'cf'},{SPLITS=>['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f']}
+create 'blog',{CONFIGURATION => {'hbase.regionserver.region.split_restriction.type' => 'KeyPrefix','hbase.regionserver.region.split_restriction.prefix_length' => '1'}},{NAME=>'cf'},{SPLITS=>['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f']}
 
 # 查看表信息
 describe 'blog'
@@ -81,6 +81,23 @@ scan 'blog'
 # 
 describe 'hbase:meta'
 ```
+
+```shell
+hbase:002:0> describe 'blog'
+Table blog is ENABLED
+blog, {TABLE_ATTRIBUTES => {METADATA => {'hbase.regionserver.region.split_restriction.prefix_length' => '1', 'hbase.regi
+onserver.region.split_restriction.type' => 'KeyPrefix'}}}
+COLUMN FAMILIES DESCRIPTION
+{NAME => 'cf', BLOOMFILTER => 'ROW', IN_MEMORY => 'false', VERSIONS => '1', KEEP_DELETED_CELLS => 'FALSE', DATA_BLOCK_EN
+CODING => 'NONE', COMPRESSION => 'NONE', TTL => 'FOREVER', MIN_VERSIONS => '0', BLOCKCACHE => 'true', BLOCKSIZE => '6553
+6', REPLICATION_SCOPE => '0'}
+
+1 row(s)
+Quota is disabled
+Took 0.1503 seconds
+```
+
+doc: <https://linianhui.github.io/hbase/split-policy/>
 
 ## mysql
 
