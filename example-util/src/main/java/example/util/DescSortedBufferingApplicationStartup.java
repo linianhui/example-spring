@@ -75,7 +75,7 @@ public class DescSortedBufferingApplicationStartup extends BufferingApplicationS
             InvokeStartCountDto result = new InvokeStartCountDto();
             result.threadId = thread.getId();
             result.threadName = thread.getName();
-            StackTraceElement caller = thread.getStackTrace()[2];
+            StackTraceElement caller = thread.getStackTrace()[3];
             result.className = caller.getClassName();
             result.fileName = caller.getFileName();
             result.methodName = caller.getMethodName();
