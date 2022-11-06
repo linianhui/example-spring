@@ -24,7 +24,7 @@ public class GatewayApplication {
         app.run(args);
     }
 
-    @GetMapping(path = "startup")
+    @GetMapping(path = "start-count")
     public Object get() {
         return STARTUP.getCounts();
     }

@@ -1,4 +1,5 @@
 <!-- TOC -->
+
 - [CI](#ci)
 - [RUN](#run)
 - [INFRA](#infra)
@@ -12,6 +13,7 @@
   - [gateway](#gateway)
   - [cms](#cms)
 - [Send http2-prior-knowledge request](#send-http2-prior-knowledge-request)
+
 <!-- TOC -->
 
 # CI
@@ -43,7 +45,6 @@ docker-compose up -d --build
 ```
 
 # INFRA
-
 
 ## alibaba-sentinel
 
@@ -127,13 +128,14 @@ ls /
 ```
 
 # API
+
 [API](api.http)
 
 ## gateway
 
 gateway: <http://192.168.2.201:30001>
 
-gateway-app-startup: <http://192.168.2.201:30001/.app/startup>
+gateway-start-count: <http://192.168.2.201:30001/.app/start-count>
 
 gateway-actuator: <http://192.168.2.201:30001/.actuator>
 
@@ -159,6 +161,7 @@ docker exec -t example-spring-gateway sh -c 'curl -s --http2-prior-knowledge htt
 ```
 
 输出:
+
 ```json
 {
   "gateway": {
@@ -206,4 +209,5 @@ docker exec -t example-spring-gateway sh -c 'curl -s --http2-prior-knowledge htt
 ```
 
 [GitHub-Actions-Img]:https://github.com/linianhui/spring.example/workflows/test/badge.svg
+
 [GitHub-Actions-Url]:https://github.com/linianhui/spring.example/actions
