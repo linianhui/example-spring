@@ -31,7 +31,7 @@ public class DescSortedBufferingApplicationStartup extends BufferingApplicationS
         StartupStep result = super.start(name);
         Thread thread = Thread.currentThread();
         StackTraceElement caller = thread.getStackTrace()[2];
-        CallerCountDto dto = CallerCountDto.of(caller);
+        CallerCountDto dto = CallerCountDto.of(thread, caller);
         times.computeIfAbsent(CallerCountDto.key(dto), x -> dto).incCount();
         return result;
     }
@@ -72,9 +72,9 @@ public class DescSortedBufferingApplicationStartup extends BufferingApplicationS
             return dto.threadId + dto.className + dto.file + dto.method + dto.line;
         }
 
-        public static CallerCountDto of(StackTraceElement element) {
+        public static CallerCountDto of(Thread thread, StackTraceElement element) {
             CallerCountDto result = new CallerCountDto();
-            result.threadId = Thread.currentThread().getId();
+            result.threadId = thread.getId();
             result.className = element.getClassName();
             result.file = element.getFileName();
             result.method = element.getMethodName();
