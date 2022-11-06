@@ -1,5 +1,6 @@
 package example.cms;
 
+import example.util.DescSortedBufferingApplicationStartup;
 import org.apache.dubbo.config.spring.context.annotation.EnableDubbo;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
@@ -13,6 +14,8 @@ import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 public class RpcApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(RpcApplication.class, args);
+        SpringApplication app = new SpringApplication(RpcApplication.class);
+        app.setApplicationStartup(new DescSortedBufferingApplicationStartup(Integer.MAX_VALUE));
+        app.run(args);
     }
 }
