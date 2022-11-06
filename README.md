@@ -25,13 +25,19 @@
 ```bash
 # 创建网络
 docker network create example-spring-network
+```
 
+```bash
 # 启动基础设施服务
 docker-compose -f infra/docker-compose.yml up -d --build
+```
 
+```bash
 # 编译项目
 ./mvnw clean test package 
+```
 
+```bash
 # 启动业务服务
 docker-compose up -d --build
 ```
@@ -127,7 +133,11 @@ ls /
 
 gateway: <http://192.168.2.201:30001>
 
+gateway-app-startup: <http://192.168.2.201:30001/.app/startup>
+
 gateway-actuator: <http://192.168.2.201:30001/.actuator>
+
+gateway-startup: <http://192.168.2.201:30001/.actuator/startup>
 
 gateway-doc: <http://192.168.2.201:30001/.doc/index.html>
 
