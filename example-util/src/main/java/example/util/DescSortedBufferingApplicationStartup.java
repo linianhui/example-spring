@@ -18,21 +18,19 @@ public class DescSortedBufferingApplicationStartup extends BufferingApplicationS
         super(capacity);
     }
 
-    private final Map<String, CallerCountDto> times = new ConcurrentHashMap<>();
+    private final Map<String, InvokeStartCountDto> counts = new ConcurrentHashMap<>();
 
-    public List<CallerCountDto> getCounts() {
-        return times.values()
+    public List<InvokeStartCountDto> getCounts() {
+        return counts.values()
             .stream()
-            .sorted(Comparator.comparing(CallerCountDto::getCount).reversed())
+            .sorted(Comparator.comparing(InvokeStartCountDto::getCount).reversed())
             .collect(Collectors.toList());
     }
 
     public StartupStep start(String name) {
         StartupStep result = super.start(name);
-        Thread thread = Thread.currentThread();
-        StackTraceElement caller = thread.getStackTrace()[2];
-        CallerCountDto dto = CallerCountDto.of(thread, caller);
-        times.computeIfAbsent(CallerCountDto.key(dto), x -> dto).incCount();
+        InvokeStartCountDto dto = InvokeStartCountDto.of(Thread.currentThread());
+        counts.computeIfAbsent(InvokeStartCountDto.key(dto), x -> dto).incCount();
         return result;
     }
 
@@ -56,11 +54,12 @@ public class DescSortedBufferingApplicationStartup extends BufferingApplicationS
     }
 
     @Data
-    public static class CallerCountDto {
+    public static class InvokeStartCountDto {
         private long threadId;
+        private String threadName;
         private String className;
-        private String method;
-        private String file;
+        private String methodName;
+        private String fileName;
         private int line;
         private int count;
 
@@ -68,17 +67,19 @@ public class DescSortedBufferingApplicationStartup extends BufferingApplicationS
             count++;
         }
 
-        public static String key(CallerCountDto dto) {
-            return dto.threadId + dto.className + dto.file + dto.method + dto.line;
+        public static String key(InvokeStartCountDto dto) {
+            return dto.threadId + dto.className + dto.fileName + dto.methodName + dto.line;
         }
 
-        public static CallerCountDto of(Thread thread, StackTraceElement element) {
-            CallerCountDto result = new CallerCountDto();
+        public static InvokeStartCountDto of(Thread thread) {
+            InvokeStartCountDto result = new InvokeStartCountDto();
             result.threadId = thread.getId();
-            result.className = element.getClassName();
-            result.file = element.getFileName();
-            result.method = element.getMethodName();
-            result.line = element.getLineNumber();
+            result.threadName = thread.getName();
+            StackTraceElement caller = thread.getStackTrace()[2];
+            result.className = caller.getClassName();
+            result.fileName = caller.getFileName();
+            result.methodName = caller.getMethodName();
+            result.line = caller.getLineNumber();
             return result;
         }
     }
