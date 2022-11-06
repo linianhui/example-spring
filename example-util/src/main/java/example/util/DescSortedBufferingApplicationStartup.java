@@ -29,7 +29,7 @@ public class DescSortedBufferingApplicationStartup extends BufferingApplicationS
 
     public StartupStep start(String name) {
         StartupStep result = super.start(name);
-        InvokeStartCountDto dto = InvokeStartCountDto.of(Thread.currentThread());
+        InvokeStartCountDto dto = InvokeStartCountDto.of(Thread.currentThread(), 3);
         counts.computeIfAbsent(InvokeStartCountDto.key(dto), x -> dto).incCount();
         return result;
     }
@@ -71,11 +71,11 @@ public class DescSortedBufferingApplicationStartup extends BufferingApplicationS
             return dto.threadId + dto.className + dto.fileName + dto.methodName + dto.line;
         }
 
-        public static InvokeStartCountDto of(Thread thread) {
+        public static InvokeStartCountDto of(Thread thread, int stackTraceIndex) {
             InvokeStartCountDto result = new InvokeStartCountDto();
             result.threadId = thread.getId();
             result.threadName = thread.getName();
-            StackTraceElement caller = thread.getStackTrace()[2];
+            StackTraceElement caller = thread.getStackTrace()[stackTraceIndex];
             result.className = caller.getClassName();
             result.fileName = caller.getFileName();
             result.methodName = caller.getMethodName();
