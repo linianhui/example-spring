@@ -7,7 +7,7 @@ WORKDIR /app
 
 COPY ${JAR_FILE} app.jar
 
-ENV JAVA_OPTIONS='-XX:+UseG1GC -XX:+UseContainerSupport -XX:MaxRAMPercentage=75.00 -XX:+FlightRecorder -XX:StartFlightRecording=duration=10s,disk=true,dumponexit=true,filename=1.jfr'
+ENV JAVA_OPTIONS='-XX:+UseG1GC -XX:+UseContainerSupport -XX:MaxRAMPercentage=75.00 -XX:+FlightRecorder -XX:StartFlightRecording=duration=60s,disk=true,dumponexit=true,filename=gateway.jfr'
 
 ENTRYPOINT ["/bin/bash", "-c", "java $JAVA_OPTIONS $JAVA_DEBUG_OPTIONS -jar app.jar"]
 
