@@ -22,7 +22,7 @@ services:
     build: alibaba-sentinel
     hostname: alibaba-sentinel.test
     container_name: infra-alibaba-sentinel
-    restart: always
+    #restart: always
     ports:
       - '10088:80'
 
@@ -30,7 +30,7 @@ services:
     build: dubbo-admin
     hostname: dubbo-admin.test
     container_name: infra-dubbo-admin
-    restart: always
+    #restart: always
     ports:
       - '18080:8080'
 
@@ -38,7 +38,7 @@ services:
     build: hbase
     hostname: hbase.test
     container_name: infra-hbase
-    restart: always
+    #restart: always
     ports:
       - '2181:2181'
       - '16010:16010'
@@ -50,7 +50,7 @@ services:
     build: mysql
     hostname: mysql.test
     container_name: infra-mysql
-    restart: always
+    #restart: always
     volumes:
       - volume_mysql:/var/lib/mysql
 
@@ -58,7 +58,7 @@ services:
     build: mysql-admin
     hostname: mysql-admin.test
     container_name: infra-mysql-admin
-    restart: always
+    #restart: always
     ports:
       - '13306:80'
     volumes:
@@ -68,7 +68,7 @@ services:
     build: zipkin
     hostname: zipkin.test
     container_name: infra-zipkin
-    restart: always
+    #restart: always
     ports:
       - '19411:9411'
 
@@ -76,7 +76,7 @@ services:
     build: zookeeper
     hostname: zookeeper-1.test
     container_name: infra-zookeeper-1
-    restart: always
+    #restart: always
     ports:
       - '28080:8080'
     volumes:
